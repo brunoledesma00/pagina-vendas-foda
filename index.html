@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Fim do Desconforto Alimentar | [NOME DO SEU APP]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-fundo: #0D0D10; /* Preto quase absoluto, chique pra caralho */
+            --cor-texto: #cccccc;
+            --cor-texto-forte: #ffffff;
+            --cor-destaque: #D4AF37; /* Ouro, porra! Cor de dinheiro! */
+            --cor-caixa: #1A1A1E;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            max-width: 850px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .header-aviso {
+            background: linear-gradient(90deg, rgba(212,175,55,0.8) 0%, rgba(212,175,55,1) 100%);
+            color: #0D0D10;
+            text-align: center;
+            padding: 14px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .header-principal {
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+
+        .header-principal h1 {
+            margin: 0;
+            font-size: 3.2em;
+            font-weight: 700;
+            color: var(--cor-texto-forte);
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .header-principal h2 {
+            margin: 20px 0 0;
+            font-size: 1.5em;
+            font-weight: 400;
+            color: var(--cor-texto);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section {
+            background-color: var(--cor-caixa);
+            margin: 25px 0;
+            padding: 40px;
+            text-align: center;
+            border-radius: 16px;
+            border: 1px solid #2a2a2e;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .section h3 {
+            font-size: 2.2em;
+            font-weight: 600;
+            color: var(--cor-texto-forte);
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        
+        .lista-dor {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 550px;
+            margin: 20px auto;
+        }
+
+        .lista-dor li {
+            background-color: transparent;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--cor-destaque);
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .lista-dor li:hover {
+            background-color: rgba(212,175,55,0.05);
+        }
+
+        .product-image {
+            max-width: 100%;
+            margin: 20px auto 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--cor-destaque);
+            color: var(--cor-fundo);
+            padding: 22px 55px;
+            text-decoration: none;
+            font-size: 1.6em;
+            font-weight: 700;
+            border-radius: 12px;
+            margin-top: 20px;
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
+            border: none;
+            box-shadow: 0 5px 20px rgba(212,175,55,0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(212,175,55,0.5);
+        }
+
+        .price-box {
+            background: linear-gradient(145deg, #1e1e24, #16161a);
+            border: 2px solid var(--cor-destaque);
+        }
+
+        .price {
+            font-size: 5em;
+            font-weight: 700;
+            color: var(--cor-destaque);
+            line-height: 1;
+        }
+
+        .old-price {
+            font-size: 1.5em;
+            text-decoration: line-through;
+            color: #666;
+        }
+
+        .guarantee img {
+            max-width: 100px;
+            margin-bottom: 20px;
+            filter: grayscale(100%) brightness(200%);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        @media (max-width: 600px) {
+            .header-principal h1 { font-size: 2.5em; }
+            .header-principal h2 { font-size: 1.1em; }
+            .section { padding: 30px 20px; }
+            .section h3 { font-size: 1.8em; }
+            .cta-button { font-size: 1.2em; padding: 20px; width: 100%; }
+            .price { font-size: 4em; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-aviso">
+        <strong>OFERTA EXCLUSIVA:</strong> Acesso vitalício por um valor que não se repetirá.
+    </div>
+
+    <header class="header-principal">
+        <h1>Sua Alimentação Está Roubando Sua Energia e Bem-Estar?</h1>
+        <h2>Assuma o controle definitivo sobre seu corpo e redescubra o prazer de comer sem culpa, inchaço ou limitações com um método validado e acessível.</h2>
+    </header>
+
+    <div class="container">
+        
+        <div class="section">
+            <h3>Se o seu dia a dia é um campo de batalha contra a comida, esta é sua carta de alforria.</h3>
+            <ul class="lista-dor">
+                <li>O desconforto e o inchaço após as refeições se tornaram seu "novo normal"?</li>
+                <li>Você recusa convites e evita eventos sociais por medo de não ter o que comer?</li>
+                <li>A frustração de gastar com alimentos "saudáveis" sem sabor te desanima?</li>
+                <li>A falta de energia constante te impede de viver seu máximo potencial?</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Imagine uma vida sem essas correntes.</h3>
+            <p>Uma realidade onde você desfruta de cada garfada, sabendo que ela te nutre e te fortalece. Onde a comida é sua aliada, não sua inimiga. Onde você tem total confiança e liberdade para comer o que ama.</p>
+            <p>O <strong>[NOME DO SEU APP]</strong> não é um aplicativo. É o arquiteto da sua nova vida alimentar.</p>
+        </div>
+
+        <div class="section">
+            <h3>O Ecossistema Completo Para Sua Transformação:</h3>
+            <img src="https://placehold.co/800x500/1A1A1E/D4AF37?text=A+Imagem+do+Seu+Imp%C3%A9rio" alt="Mockup do [NOME DO SEU APP]" class="product-image">
+            <ul class="lista-dor">
+                <li><strong>Planejamento Estratégico Semanal:</strong> Elimine a ansiedade da escolha. Tenha clareza total do seu cardápio.</li>
+                <li><strong>Culinária de Alta Performance:</strong> Receitas impactantes prontas em menos de 15 minutos.</li>
+                <li><strong>Inteligência de Mercado:</strong> Aprenda a comprar com sabedoria, economizando tempo e dinheiro.</li>
+                <li><strong>Evolução Contínua:</strong> Acesso a novas receitas e estratégias toda semana, para você estar sempre à frente.</li>
+            </ul>
+        </div>
+
+        <div class="section price-box">
+            <h3>Seu Investimento na Qualidade de Vida Definitiva</h3>
+            <p>O valor de mercado deste ecossistema ultrapassa <span class="old-price">R$ 297</span>.</p>
+            <p>Mas hoje, o seu acesso vitalício a esta revolução não será por este valor.</p>
+            <p>Seu investimento único é de apenas:</p>
+            <p class="price">R$ 27</p>
+            <p>(Um valor simbólico para um benefício que dura a vida inteira)</p>
+            
+            <a href="[SEU LINK DE CHECKOUT AQUI]" class="cta-button">GARANTIR MEU ACESSO VITALÍCIO</a>
+            <p style="font-size: 0.9em; margin-top: 15px;">Compra 100% segura. Acesso imediato e para sempre.</p>
+        </div>
+
+        <div class="section guarantee">
+            <img src="https://i.imgur.com/g8kSAJt.png" alt="Selo de Garantia">
+            <h3>GARANTIA BLINDADA: SEU RISCO É ZERO.</h3>
+            <p>Sua decisão está protegida. Acesse todo o material por 7 dias. Se não sentir uma transformação real no seu bem-estar, solicite seu reembolso com um único clique. Devolveremos 100% do seu investimento, sem questionamentos. A responsabilidade é inteiramente nossa.</p>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>[Nome da sua Empresa] | CNPJ: XX.XXX.XXX/0001-XX</p>
+        <p>Copyright © 2024. Performance e design por Lek do Black. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
