@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Verdade Sobre Sua Alimentação |Sabor Livre </title>
+    <title>A Verdade Sobre Sua Alimentação | Sabor Livre</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -86,6 +86,8 @@
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; text-align: left; }
         .testimonial-card { background-color: #000; padding: 30px; border-radius: 12px; border: 1px solid var(--cor-borda); }
         .testimonial-card p { font-size: 1.1em; margin: 15px 0 20px 0; font-style: italic; }
+        .testimonial-author-info { display: flex; align-items: center; margin-top: 20px; }
+        .testimonial-author-info img { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; border: 2px solid var(--cor-borda); }
         .testimonial-author { font-weight: 700; color: var(--cor-texto-forte); }
         .stars { color: #ffc107; font-size: 1.2em; }
 
@@ -192,17 +194,26 @@
                 <div class="testimonial-card">
                     <div class="stars">★★★★★</div>
                     <p>Pensei que estava condenada a viver inchada. Em menos de 15 dias, a mudança foi absurda. A qualidade das receitas e a praticidade do app são de outro nível. Vale cada centavo e muito mais.</p>
-                    <span class="testimonial-author">Juliana M., 34 anos</span>
+                    <div class="testimonial-author-info">
+                        <img src="https://i.imgur.com/m51E8Hw.png" alt="Foto de Juliana M.">
+                        <span class="testimonial-author">Juliana M., 34 anos</span>
+                    </div>
                 </div>
                 <div class="testimonial-card">
                     <div class="stars">★★★★★</div>
                     <p>Como atleta amador, energia é tudo. Eu vivia cansado. Depois que comecei a usar o app, minha performance e recuperação melhoraram 200%. É um game-changer, sem exagero.</p>
-                    <span class="testimonial-author">Ricardo P., 28 anos</span>
+                    <div class="testimonial-author-info">
+                        <img src="https://i.imgur.com/iPb6Tl7.png" alt="Foto de Ricardo P.">
+                        <span class="testimonial-author">Ricardo P., 28 anos</span>
+                    </div>
                 </div>
                 <div class="testimonial-card">
                     <div class="stars">★★★★★</div>
                     <p>Finalmente encontrei paz na cozinha. Faço uma comida só para a família toda e todos amam. O app não salvou só minha saúde, salvou meu tempo e acabou com o estresse na cozinha.</p>
-                    <span class="testimonial-author">Cláudia S., 45 anos</span>
+                    <div class="testimonial-author-info">
+                        <img src="https://i.imgur.com/rlnvfIE.png" alt="Foto de Cláudia S.">
+                        <span class="testimonial-author">Cláudia S., 45 anos</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -273,6 +284,4 @@
 
 </body>
 </html>
-
-
 
