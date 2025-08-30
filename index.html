@@ -106,6 +106,29 @@
         .para-quem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .para-quem-col h4 { font-size: 1.5em; color: var(--cor-texto-forte); }
 
+        .app-showcase {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px 5px;
+            margin-top: 30px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .app-showcase::-webkit-scrollbar { display: none; }
+        .app-showcase img {
+            height: 450px;
+            width: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        .app-showcase img:hover {
+            transform: scale(1.03);
+        }
+        .scroll-hint { font-size: 0.9em; color: #888; margin-top: 10px; font-style: italic; }
+
         .footer { text-align: center; padding: 40px; font-size: 0.9em; color: #555; }
 
         @media (max-width: 768px) {
@@ -119,6 +142,7 @@
             .section h3 { font-size: 1.9em; }
             .cta-button { font-size: 1.2em; padding: 20px; width: 100%; }
             .price { font-size: 4.5em; }
+            .app-showcase img { height: 380px; }
         }
     </style>
 </head>
@@ -156,12 +180,25 @@
             </div>
         </div>
 
-        <!-- SEÇÃO 4: A REVELAÇÃO DA ARMA SECRETA (SEÇÃO REFEITA, SEU ARROMBADO) -->
+        <!-- SEÇÃO 4: A REVELAÇÃO DA ARMA SECRETA -->
         <div class="section">
             <h3>A Ferramenta que Transforma Frustração em Poder.</h3>
             <p>Depois de mapear o campo de batalha, eu construí a arma definitiva. Isso não é somente um "aplicativo". É o seu centro de comando. A sua sala de guerra pessoal contra a inflamação, o cansaço e a falta de controle.</p>
             <p style="font-size: 1.3em; font-weight: 700; color: var(--cor-texto-forte); margin-top: 30px;">Aqui dentro, você não encontra apenas receitas. Você encontra seu poder de volta.</p>
-            <img src="https://i.imgur.com/Aqxf1Q4.png" alt="Mockup do Sabor Livre" class="product-image">
+            
+            <!-- GALERIA DE PRINTS DO APP, SEU ARROMBADO -->
+            <div class="app-showcase">
+                <img src="https://placehold.co/250x450/101012/D4AF37?text=Tela+Inicial" alt="Print do App Sabor Livre">
+                <img src="https://placehold.co/250x450/101012/D4AF37?text=Receita" alt="Print do App Sabor Livre">
+                <img src="https://placehold.co/250x450/101012/D4AF37?text=Busca" alt="Print do App Sabor Livre">
+                <img src="https://placehold.co/250x450/101012/D4AF37?text=Favoritos" alt="Print do App Sabor Livre">
+                <img src="https://placehold.co/250x450/101012/D4AF37?text=Lista+de+Compras" alt="Print do App Sabor Livre">
+                <img src="https://placehold.co/250x450/101012/D4AF37?text=Caf%C3%A9+da+Manh%C3%A3" alt="Print do App Sabor Livre">
+                <img src="https://placehold.co/250x450/101012/D4AF37?text=Almo%C3%A7o" alt="Print do App Sabor Livre">
+                <img src="https://placehold.co/250x450/101012/D4AF37?text=Jantar" alt="Print do App Sabor Livre">
+            </div>
+            <p class="scroll-hint">Arraste para o lado para espiar por dentro</p>
+
         </div>
         
         <!-- SEÇÃO 5: PARA QUEM É (E NÃO É) ESSA REVOLUÇÃO -->
@@ -195,7 +232,7 @@
                     <div class="stars">★★★★★</div>
                     <p>Pensei que estava condenada a viver inchada. Em menos de 15 dias, a mudança foi absurda. A qualidade das receitas e a praticidade do app são de outro nível. Vale cada centavo e muito mais.</p>
                     <div class="testimonial-author-info">
-                        <img src="https://i.imgur.com/m51E8Hw.png" alt="Foto de Juliana M.">
+                        <img src="https://placehold.co/50x50/1A1A1E/D4AF37?text=J" alt="Foto de Juliana M.">
                         <span class="testimonial-author">Juliana M., 34 anos</span>
                     </div>
                 </div>
@@ -203,7 +240,7 @@
                     <div class="stars">★★★★★</div>
                     <p>Como atleta amador, energia é tudo. Eu vivia cansado. Depois que comecei a usar o app, minha performance e recuperação melhoraram 200%. É um game-changer, sem exagero.</p>
                     <div class="testimonial-author-info">
-                        <img src="https://i.imgur.com/NcC4AUd.png" alt="Foto de Ricardo P.">
+                        <img src="https://placehold.co/50x50/1A1A1E/D4AF37?text=R" alt="Foto de Ricardo P.">
                         <span class="testimonial-author">Ricardo P., 28 anos</span>
                     </div>
                 </div>
@@ -211,7 +248,7 @@
                     <div class="stars">★★★★★</div>
                     <p>Finalmente encontrei paz na cozinha. Faço uma comida só para a família toda e todos amam. O app não salvou só minha saúde, salvou meu tempo e acabou com o estresse na cozinha.</p>
                     <div class="testimonial-author-info">
-                        <img src="https://i.imgur.com/rlnvfIE.png" alt="Foto de Cláudia S.">
+                        <img src="https://placehold.co/50x50/1A1A1E/D4AF37?text=C" alt="Foto de Cláudia S.">
                         <span class="testimonial-author">Cláudia S., 45 anos</span>
                     </div>
                 </div>
@@ -284,5 +321,4 @@
 
 </body>
 </html>
-
 
