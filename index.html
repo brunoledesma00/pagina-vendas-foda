@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Verdade Sobre Sua Alimentação | Sabor Livre</title>
+    <title>Sabor Livre | O Fim da Sua Prisão Alimentar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Poppins:wght@700&display=swap" rel="stylesheet">
     
     <!-- Meta Pixel Code -->
     <script>
@@ -28,313 +28,158 @@
 
     <style>
         :root {
-            --cor-fundo: #000000;
-            --cor-texto: #c7c7c7;
-            --cor-texto-forte: #ffffff;
-            --cor-destaque: #D4AF37;
-            --cor-destaque-hover: #E7C35B;
-            --cor-caixa: #101012;
-            --cor-borda: #2a2a2e;
-            --cor-perigo: #ff3b30;
+            --cor-fundo: #ffffff;
+            --cor-texto: #111111;
+            --cor-destaque: #008000;
+            --cor-destaque-forte: #ffbf00;
+            --cor-cta: #ff4500;
+            --cor-cta-hover: #e03e00;
         }
-
-        *, *::before, *::after { box-sizing: border-box; }
-
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.8;
             margin: 0;
             padding: 0;
             background-color: var(--cor-fundo);
             color: var(--cor-texto);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
-        
-        .container { max-width: 850px; margin: auto; padding: 0 20px; }
-
-        .header-principal { padding: 5rem 1.5rem; text-align: center; border-bottom: 1px solid var(--cor-borda); }
-        .header-principal h1 { margin: 0; font-size: 3.8em; font-weight: 800; color: var(--cor-texto-forte); letter-spacing: -2px; line-height: 1.1; }
-        .header-principal h1 span { color: var(--cor-destaque); text-shadow: 0 0 15px rgba(212,175,55,0.5); }
-        .header-principal h2 { margin: 25px 0 40px; font-size: 1.4em; font-weight: 400; color: var(--cor-texto); max-width: 700px; margin-left: auto; margin-right: auto; }
-
-        .section {
-            background-color: var(--cor-caixa);
-            margin: 30px 0;
-            padding: 50px;
-            text-align: center;
-            border-radius: 20px;
-            border: 1px solid var(--cor-borda);
-        }
-        .section h3 { font-size: 2.5em; font-weight: 700; color: var(--cor-texto-forte); margin-top: 0; margin-bottom: 40px; line-height: 1.3; }
-        
-        .lista-check { list-style: none; padding: 0; text-align: left; max-width: 550px; margin: 20px auto; }
-        .lista-check li { display: flex; align-items: center; padding: 10px 0; font-size: 1.1em; font-weight: 600; }
-        .lista-check li svg { min-width: 24px; margin-right: 15px; }
-        .lista-check.perigo svg { color: var(--cor-perigo); }
-        .lista-check.vantagem svg { color: var(--cor-destaque); }
-
-        .product-image { max-width: 100%; margin: 20px auto 40px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
-        
+        .container { max-width: 750px; margin: auto; padding: 20px; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; color: #000; line-height: 1.2; }
+        h1 { font-size: 2.8em; text-align: center; }
+        h2 { font-size: 2.2em; }
+        .highlight { background-color: var(--cor-destaque-forte); padding: 2px 6px; }
+        .sub-headline { font-size: 1.2em; text-align: center; color: #555; margin-bottom: 40px; }
+        .warning-box { background-color: #ffecec; border: 2px solid #ff3b30; border-radius: 8px; padding: 20px; text-align: center; margin: 40px 0; }
+        .warning-box h3 { color: #ff3b30; margin-top: 0; }
+        .section { margin-bottom: 50px; }
+        .lista-check li { list-style-type: '✓ '; padding-left: 10px; font-size: 1.1em; margin-bottom: 10px; }
         .cta-button {
-            display: inline-block;
-            background-color: var(--cor-destaque);
-            color: var(--cor-fundo);
-            padding: 22px 60px;
+            display: block;
+            background-color: var(--cor-cta);
+            color: #ffffff;
+            padding: 25px;
             text-decoration: none;
-            font-size: 1.6em;
-            font-weight: 700;
+            font-size: 1.8em;
+            font-weight: 900;
             border-radius: 12px;
-            margin-top: 20px;
-            transition: all 0.3s ease-in-out;
+            margin: 30px 0;
+            transition: all 0.2s ease-in-out;
             text-transform: uppercase;
-            border: none;
-            box-shadow: 0 0 20px rgba(212,175,55,0.4);
-            animation: pulse 2s infinite;
+            text-align: center;
+            border-bottom: 6px solid #b33100;
         }
-        .cta-button:hover { background-color: var(--cor-destaque-hover); transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 30px rgba(212,175,55,0.5); }
-        @keyframes pulse { 0% { box-shadow: 0 0 20px rgba(212,175,55,0.4); } 50% { box-shadow: 0 0 30px rgba(212,175,55,0.7); } 100% { box-shadow: 0 0 20px rgba(212,175,55,0.4); } }
-
-        .price-box { background: linear-gradient(145deg, #1e1e24, #16161a); border: 2px solid var(--cor-destaque); }
-        .price { font-size: 5.5em; font-weight: 800; color: var(--cor-destaque); line-height: 1; }
-        .old-price { font-size: 1.5em; text-decoration: line-through; color: #666; }
-
-        .guarantee img { max-width: 100px; margin-bottom: 20px; }
-
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; text-align: left; }
-        .testimonial-card { background-color: #000; padding: 30px; border-radius: 12px; border: 1px solid var(--cor-borda); }
-        .testimonial-card p { font-size: 1.1em; margin: 15px 0 20px 0; font-style: italic; }
-        .testimonial-author-info { display: flex; align-items: center; margin-top: 20px; }
-        .testimonial-author-info img { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; border: 2px solid var(--cor-borda); }
-        .testimonial-author { font-weight: 700; color: var(--cor-texto-forte); }
-        .stars { color: #ffc107; font-size: 1.2em; }
-
-        .faq-item { text-align: left; border-bottom: 1px solid var(--cor-borda); padding: 20px 0; }
-        .faq-item summary { font-size: 1.2em; font-weight: 600; color: var(--cor-texto-forte); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;}
-        .faq-item summary::-webkit-details-marker { display: none; }
-        .faq-item summary::after { content: '+'; font-size: 1.5em; color: var(--cor-destaque); transition: transform 0.3s ease; }
-        .faq-item[open] summary::after { transform: rotate(45deg); }
-        .faq-answer { padding: 15px 5px 0; }
-
-        .final-cta-section { background: linear-gradient(45deg, var(--cor-destaque), #B8860B); color: var(--cor-fundo); }
-
-        .creator-section { display: flex; align-items: center; gap: 40px; text-align: left; }
-        .creator-section img { max-width: 150px; border-radius: 50%; border: 4px solid var(--cor-destaque); }
-        
-        .para-quem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .para-quem-col h4 { font-size: 1.5em; color: var(--cor-texto-forte); }
-
-        .app-showcase {
-            display: flex;
-            overflow-x: auto;
-            gap: 20px;
-            padding: 20px 5px;
-            margin-top: 30px;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .app-showcase::-webkit-scrollbar { display: none; }
-        .app-showcase img {
-            height: 450px;
-            width: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-        }
-        .app-showcase img:hover {
-            transform: scale(1.03);
-        }
-        .scroll-hint { font-size: 0.9em; color: #888; margin-top: 10px; font-style: italic; }
-
-        .footer { text-align: center; padding: 40px; font-size: 0.9em; color: #555; }
-
-        @media (max-width: 768px) {
-            .creator-section { flex-direction: column; text-align: center; }
-            .para-quem-grid { grid-template-columns: 1fr; }
-        }
+        .cta-button:hover { background-color: var(--cor-cta-hover); transform: translateY(-2px); }
+        .creator-section { display: flex; align-items: center; gap: 25px; background: #f0f0f0; padding: 20px; border-radius: 8px; margin: 40px 0; }
+        .creator-section img { max-width: 120px; border-radius: 50%; }
+        .app-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .app-gallery img { width: 100%; border-radius: 8px; border: 2px solid #ddd; }
+        .testimonial-card { background-color: #f9f9f9; border-left: 5px solid var(--cor-destaque); padding: 20px; margin-bottom: 20px; }
+        .testimonial-author-info { display: flex; align-items: center; margin-top: 15px; }
+        .testimonial-author-info img { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; }
+        .testimonial-author { font-weight: 700; }
+        .price-box { background: #f0fff0; border: 3px dashed var(--cor-destaque); padding: 30px; text-align: center; }
+        .price { font-size: 6em; font-weight: 900; color: var(--cor-texto); }
+        .old-price { font-size: 1.5em; text-decoration: line-through; color: #888; }
+        .guarantee { text-align: center; }
+        .guarantee img { max-width: 120px; }
+        .ps-section { border-top: 2px solid #ccc; margin-top: 40px; padding-top: 20px; }
         @media (max-width: 600px) {
-            .header-principal h1 { font-size: 2.8em; }
-            .header-principal h2 { font-size: 1.1em; }
-            .section { padding: 30px 20px; }
-            .section h3 { font-size: 1.9em; }
-            .cta-button { font-size: 1.2em; padding: 20px; width: 100%; }
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.8em; }
+            .creator-section { flex-direction: column; }
+            .cta-button { font-size: 1.3em; padding: 20px; }
             .price { font-size: 4.5em; }
-            .app-showcase img { height: 380px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- SEÇÃO 1: O SOCO NA CARA -->
-    <header class="header-principal">
-        <h1>Eles Estão te Envenenando. <span>E Você Está Deixando.</span></h1>
-        <h2>Existe um motivo para você viver inchado, sem energia e refém da comida. E a culpa não é sua. Está na hora de virar o jogo.</h2>
-        <a href="#price" class="cta-button">QUERO O CONTROLE DA MINHA VIDA DE VOLTA</a>
-    </header>
-
-    <div class="container">
-        
-        <!-- SEÇÃO 2: O DIAGNÓSTICO BRUTAL -->
-        <div class="section">
-            <h3>Seu corpo está gritando por socorro. Você vai continuar ignorando?</h3>
-            <p style="font-size: 1.2em; max-width: 650px; margin: -20px auto 40px;">Você se acostumou a viver com 50% da sua capacidade. Se acostumou com a dor, com o cansaço, com a frustração. Isso não é vida. É sobrevivência.</p>
-            <ul class="lista-check perigo">
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Seu corpo está inflamado. O inchaço é só o primeiro sintoma.</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Sua mente está nublada. A falta de energia rouba seu foco e sua produtividade.</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Sua liberdade está comprometida. Você planeja sua vida ao redor da comida e do banheiro.</li>
-            </ul>
-        </div>
-
-        <!-- SEÇÃO 3: O MENTOR CASCA-GROSSA -->
-        <div class="section">
-            <h3>Eu já estive no fundo do poço que você está agora.</h3>
-            <div class="creator-section">
-                <img src="https://i.imgur.com/uBGhHAY.png" alt="Foto do Criador">
-                <div>
-                    <p>Meu nome é Maria Eduarda Ribeiro, e por anos, eu fui um refém. Refém da indústria, dos médicos que só receitavam remédios e da minha própria falta de conhecimento. Eu vivia inchado, cansado e frustrado. Até que eu dei um foda-se para tudo isso.</p>
-                    <p>Passei os últimos 5 anos no campo de batalha, testando, errando e decodificando o que realmente funciona. Sem bullshit, sem teoria de livro. Criei um método para pessoas reais. E agora, eu vou te entregar o mapa da mina.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEÇÃO 4: A REVELAÇÃO DA ARMA SECRETA -->
-        <div class="section">
-            <h3>A Ferramenta que Transforma Frustração em Poder.</h3>
-            <p>Depois de mapear o campo de batalha, eu construí a arma definitiva. Isso não é somente um "aplicativo". É o seu centro de comando. A sua sala de guerra pessoal contra a inflamação, o cansaço e a falta de controle.</p>
-            <p style="font-size: 1.3em; font-weight: 700; color: var(--cor-texto-forte); margin-top: 30px;">Aqui dentro, você não encontra apenas receitas. Você encontra seu poder de volta.</p>
-            
-            <!-- GALERIA DE PRINTS DO APP, SEU ARROMBADO -->
-            <div class="app-showcase">
-                <img src="https://i.imgur.com/jKJazxP.png" alt="Print do App Sabor Livre">
-                <img src="https://i.imgur.com/3t1yATJ.png" alt="Print do App Sabor Livre">
-                <img src="https://i.imgur.com/OHoCaqi.png" alt="Print do App Sabor Livre">
-                <img src="https://i.imgur.com/JeCQYgi.png" alt="Print do App Sabor Livre">
-                <img src="https://i.imgur.com/RIwNyG4.png" alt="Print do App Sabor Livre">
-                <img src="https://i.imgur.com/gONGcDZ.png" alt="Print do App Sabor Livre">
-            </div>
-            <p class="scroll-hint">Arraste para o lado para espiar por dentro</p>
-
-        </div>
-        
-        <!-- SEÇÃO 5: PARA QUEM É (E NÃO É) ESSA REVOLUÇÃO -->
-        <div class="section">
-            <h3>Isso é para você? Seja honesto.</h3>
-            <div class="para-quem-grid">
-                <div class="para-quem-col">
-                    <h4>ISSO É PARA VOCÊ SE:</h4>
-                    <ul class="lista-check vantagem">
-                        <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Você está de saco cheio de se sentir um lixo.</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Você busca resultados, não desculpas.</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Você quer liberdade e prazer, não restrição.</li>
-                    </ul>
-                </div>
-                <div class="para-quem-col">
-                    <h4>NÃO É PARA VOCÊ SE:</h4>
-                    <ul class="lista-check perigo">
-                        <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Você procura uma pílula mágica.</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Você ama dar desculpas e se fazer de vítima.</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Você não está pronto para assumir o controle.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEÇÃO 6: PROVA SOCIAL INCONTESTÁVEL -->
-        <div class="section">
-            <h3>A prova de que isso funciona no mundo real:</h3>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>Pensei que estava condenada a viver inchada. Em menos de 15 dias, a mudança foi absurda. A qualidade das receitas e a praticidade do app são de outro nível. Vale cada centavo e muito mais.</p>
-                    <div class="testimonial-author-info">
-                        <img src="https://i.imgur.com/iPb6Tl7.png" alt="Foto de Juliana M.">
-                        <span class="testimonial-author">Juliana M., 34 anos</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>Como atleta amador, energia é tudo. Eu vivia cansado. Depois que comecei a usar o app, minha performance e recuperação melhoraram 200%. É um game-changer, sem exagero.</p>
-                    <div class="testimonial-author-info">
-                        <img src="https://i.imgur.com/NcC4AUd.png" alt="Foto de Ricardo P.">
-                        <span class="testimonial-author">Ricardo P., 28 anos</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>Finalmente encontrei paz na cozinha. Faço uma comida só para a família toda e todos amam. O app não salvou só minha saúde, salvou meu tempo e acabou com o estresse na cozinha.</p>
-                    <div class="testimonial-author-info">
-                        <img src="https://i.imgur.com/m51E8Hw.png" alt="Foto de Cláudia S.">
-                        <span class="testimonial-author">Cláudia S., 45 anos</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEÇÃO 7: A OFERTA IRRECUSÁVEL -->
-        <div class="section price-box" id="price">
-            <h3>Sua Oportunidade Única de Acesso Vitalício</h3>
-            <p>Seu acesso completo ao <strong>Sabor Livre</strong> inclui:</p>
-            <ul class="lista-check vantagem" style="max-width: 400px;">
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Acesso Vitalício ao App (Valor: R$197)</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Atualizações Semanais de Receitas (Incalculável)</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><strong>BÔNUS #1:</strong> Guia de Sobremesas Secretas (Valor: R$47)</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><strong>BÔNUS #2:</strong> Lista de Compras Inteligente (Valor: R$27)</li>
-            </ul>
-            <p style="font-size: 1.2em; font-weight: 700;">Valor total: <span style="text-decoration: line-through;">R$271</span></p>
-            <p>Seu investimento hoje não será esse. Será um valor simbólico de apenas:</p>
-            <p class="price">R$ 27</p>
-            
-            <a href="https://go.perfectpay.com.br/PPU38CQ02PT" class="cta-button">QUERO TUDO ISSO AGORA</a>
-            <p style="font-size: 0.9em; margin-top: 15px;">Pagamento único. Acesso para sempre.</p>
-        </div>
-
-        <!-- SEÇÃO 8: RISCO ZERO -->
-        <div class="section guarantee">
-            <img src="https://i.imgur.com/dKIhan6.png" alt="Selo de Garantia">
-            <h3>GARANTIA BLINDADA: SEU RISCO É ZERO.</h3>
-            <p>Sua decisão está 100% protegida. Acesse todo o material por 7 dias. Se não for a melhor decisão que você já tomou pela sua saúde, solicite seu reembolso com um único clique. Devolveremos 100% do seu investimento, sem burocracia. A responsabilidade é inteiramente nossa.</p>
-        </div>
-
-        <!-- SEÇÃO 9: ANIQUILADOR DE DÚVIDAS -->
-        <div class="section">
-            <h3>Suas Dúvidas, Aniquiladas.</h3>
-            <div class="faq-item">
-                <details>
-                    <summary>Isso significa uma dieta restritiva e sem graça?</summary>
-                    <div class="faq-answer"><p>Pelo contrário. Isso é sobre abundância. Você vai aprender a criar versões espetaculares de tudo que ama, de pães a sobremesas. É o fim da restrição e o começo da liberdade inteligente.</p></div>
-                </details>
-            </div>
-            <div class="faq-item">
-                <details>
-                    <summary>Preciso de habilidades culinárias avançadas?</summary>
-                    <div class="faq-answer"><p>Absolutamente não. Nossas receitas são desenhadas com um passo a passo claro e objetivo, para que qualquer pessoa, do iniciante ao experiente, possa criar pratos incríveis sem complicação.</p></div>
-                </details>
-            </div>
-            <div class="faq-item">
-                <details>
-                    <summary>O pagamento é único mesmo? Qual a pegadinha?</summary>
-                    <div class="faq-answer"><p>Zero pegadinhas. Você faz este investimento simbólico de R$27 uma única vez e o acesso é seu para sempre, incluindo todas as futuras atualizações e bônus. Sem mensalidades, sem taxas ocultas.</p></div>
-                </details>
-            </div>
-        </div>
-
-        <!-- SEÇÃO 10: O XEQUE-MATE -->
-        <div class="section final-cta-section">
-            <h3>Você tem duas escolhas agora:</h3>
-            <p style="font-weight: 600; font-size: 1.2em;">1. Fechar esta página e continuar no mesmo ciclo de frustração, inchaço e falta de energia.</p>
-            <p style="font-weight: 600; font-size: 1.2em;">2. Fazer um investimento irrisório em si mesmo, garantir seu acesso vitalício e começar HOJE a construir uma nova vida.</p>
-            <p style="font-size: 1.4em; font-weight: 700; margin-top: 30px;">A decisão é sua.</p>
-            <a href="#price" class="cta-button" style="background-color: #0D0D10; color: var(--cor-destaque);">ESCOLHO A TRANSFORMAÇÃO</a>
-        </div>
-
+<div class="container">
+    <div class="section">
+        <h1>Isso também acontece com você?</h1>
+        <p class="sub-headline">Seja brutalmente honesto(a) e veja se você se identifica...</p>
+        <ul class="lista-check">
+            <li>Você come algo que ama e, minutos depois, sua barriga infla como um balão?</li>
+            <li>Você já recusou um convite para jantar fora pelo medo de passar mal ou não ter o que comer?</li>
+            <li>Você acorda todos os dias com uma sensação de cansaço, como se não tivesse dormido nada?</li>
+            <li>Você sente que sua vida social, sua energia e até sua autoestima são reféns da sua digestão?</li>
+        </ul>
+        <p>Se você respondeu "SIM" para qualquer uma dessas perguntas... eu sei exatamente como você se sente. E eu preciso que você saiba de uma coisa: <strong>a culpa não é sua.</strong></p>
     </div>
 
-    <footer class="footer">
-        <p> Sabor Livre | CNPJ: 01.124.000/0001-21</p>
-        <p>Copyright © 2025. Performance e design por Sabor Livre. Todos os direitos reservados.</p>
-    </footer>
+    <div class="warning-box">
+        <h3>PARE DE SE CULPAR AGORA!</h3>
+        <p>Você foi enganado. A indústria alimentícia te vende veneno disfarçado de comida. Os médicos te entopem de remédios que só mascaram os sintomas. E os "gurus" te passam dietas restritivas que te deixam infeliz e com fome. Eles lucram com a sua dor. Chega de ser a vítima.</p>
+    </div>
+
+    <div class="section">
+        <h2>A reviravolta que salvou a minha vida (e que vai salvar a sua)</h2>
+        <div class="creator-section">
+            <img src="https://i.imgur.com/uBGhHAY.png" alt="Foto de Maria Eduarda Ribeiro">
+            <div>
+                <p><strong>De: Maria Eduarda Ribeiro</strong><br>
+                Eu era essa pessoa. Eu recusava aniversários. Eu tinha medo de viajar. Eu olhava no espelho e via uma pessoa cansada, inchada e frustrada. Minha vida era planejada entre a cozinha e o banheiro.</p>
+                <p>Até o dia que eu decidi dar um basta. Mergulhei fundo, estudei como uma louca, testei centenas de ingredientes e receitas. Eu não queria uma dieta. Eu queria a minha vida de volta. E eu consegui.</p>
+            </div>
+        </div>
+        <p>Eu descobri que era possível comer pão, pizza, bolo... TUDO o que eu amava... sem dor, sem inchaço e sem culpa. Eu só precisava do "mapa" certo. Então, eu cataloguei cada descoberta, cada receita, cada truque... e transformei tudo isso em uma ferramenta à prova de falhas.</p>
+    </div>
+    
+    <div class="section">
+        <h2>Apresento o seu novo Centro de Comando: <span class="highlight">Sabor Livre</span></h2>
+        <p>Isso não é um "livro de receitas". É a sua liberdade dentro de um app. A ferramenta exata que eu uso todos os dias para comer com prazer e viver com energia máxima. Dê uma espiada no que te espera:</p>
+        <div class="app-gallery">
+            <img src="https://i.imgur.com/jKJazxP.png" alt="Tela com receitas deliciosas">
+            <img src="https://i.imgur.com/3t1yATJ.png" alt="Busca fácil por ingredientes">
+            <img src="https://i.imgur.com/OHoCaqi.png" alt="Categorias como café da manhã">
+            <img src="https://i.imgur.com/JeCQYgi.png" alt="Receitas de almoço e jantar">
+            <img src="https://i.imgur.com/RIwNyG4.png" alt="Opções de lanches práticos">
+            <img src="https://i.imgur.com/gONGcDZ.png" alt="Lista de compras inteligente">
+        </div>
+    </div>
+
+    <a href="https://go.perfectpay.com.br/PPU38CQ02PT" class="cta-button">SIM! QUERO MINHA LIBERDADE DE VOLTA AGORA!</a>
+
+    <div class="section">
+        <h2>Veja o que pessoas reais, que estavam na mesma merda que você, estão dizendo:</h2>
+        <div class="testimonial-card">
+            <p>"Eu achei que estava condenada. Em 1 semana usando o app, parecia que tinham tirado 10kg de peso de dentro de mim. É surreal. Obrigada, Maria Eduarda, por me devolver a vida."</p>
+            <div class="testimonial-author-info">
+                <img src="https://i.imgur.com/iPb6Tl7.png" alt="Foto de Juliana M.">
+                <span class="testimonial-author">Juliana M., 34 anos</span>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <p>"Eu sou atleta amador e vivia sem energia. Achei que era cansaço do treino. Era a comida. Mudei minha alimentação com o app e minha performance explodiu. É um divisor de águas."</p>
+            <div class="testimonial-author-info">
+                <img src="https://i.imgur.com/NcC4AUd.png" alt="Foto de Ricardo P.">
+                <span class="testimonial-author">Ricardo P., 28 anos</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section price-box">
+        <h2>OK, qual o investimento para ter a minha vida de volta?</h2>
+        <p>Eu poderia facilmente cobrar R$197 por este acesso. E seria justo. É o preço de uma única consulta que não resolve seu problema.</p>
+        <p>Mas eu não quero que o dinheiro seja um impedimento. Eu quero que você sinta o que eu senti. Por isso, hoje, você não vai pagar <span class="old-price">R$197</span>.</p>
+        <p>Seu investimento para o acesso VITALÍCIO ao Sabor Livre é de apenas:</p>
+        <p class="price">R$27</p>
+        <p>Sim, você leu certo. Menos que uma pizza que te faria mal. Pagamento único. Sem mensalidades.</p>
+        <a href="https://go.perfectpay.com.br/PPU38CQ02PT" class="cta-button">GARANTIR MEU ACESSO VITALÍCIO POR R$27</a>
+    </div>
+
+    <div class="section guarantee">
+        <h2>Sua decisão é 100% livre de risco</h2>
+        <img src="https://i.imgur.com/dKIhan6.png" alt="Selo de Garantia Blindada">
+        <p>Use o Sabor Livre por 7 dias. Se você não sentir uma transformação ABSURDA no seu corpo e no seu humor, eu exijo que você peça seu dinheiro de volta. Eu devolvo cada centavo, sem perguntas, sem ressentimento. O risco é todo meu.</p>
+    </div>
+
+    <div class="ps-section">
+        <p><strong>P.S.:</strong> Você tem duas escolhas. Continuar no ciclo de dor e frustração, ou fazer um investimento ridículo de R$27 e ter a chance de mudar sua vida para sempre. A escolha parece bem óbvia pra mim.</p>
+        <p><strong>P.P.S.:</strong> Esse valor é promocional de lançamento. Não posso garantir que ele continuará assim por muito tempo. A hora de agir é agora.</p>
+    </div>
+
+</div>
 
 </body>
 </html>
