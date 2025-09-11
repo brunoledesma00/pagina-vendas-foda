@@ -28,6 +28,35 @@
             transition: max-height 0.3s ease-in-out;
         }
     </style>
+    <script type="text/javascript">
+        function importHotmart(){ 
+            var imported = document.createElement('script'); 
+            imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
+            document.head.appendChild(imported); 
+            var link = document.createElement('link'); 
+            link.rel = 'stylesheet'; 
+            link.type = 'text/css'; 
+            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
+            document.head.appendChild(link);	} 
+        importHotmart(); 
+    </script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '778205437953074');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=778205437953074&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body class="bg-gray-50">
 
@@ -36,7 +65,7 @@
         <div class="container mx-auto px-6 py-12 md:py-20 text-center">
             <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4 text-orange-400">Cansado de Viver com Medo da Comida e com a Barriga Inchada?</h1>
             <p class="text-lg md:text-2xl mb-8 max-w-3xl mx-auto text-gray-300">Chega de se sentir de fora nos jantares em família e encontros com amigos. Tenha no seu bolso o arsenal para comer o que quiser, quando quiser, sem passar mal ou vergonha.</p>
-            <a href="#oferta" class="cta-button inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-lg shadow-lg animate-pulse">
+            <a href="https://pay.hotmart.com/P101741907P?checkoutMode=2" class="hotmart-fb cta-button inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-lg shadow-lg animate-pulse">
                 👉 QUERO MINHA LIBERDADE POR R$19,90 👈
             </a>
             <p class="mt-4 text-sm text-gray-500">Acesso vitalício. Pagamento único.</p>
@@ -134,7 +163,7 @@
                     <p class="text-xl">Acesso Ilimitado e Para Sempre por apenas:</p>
                     <p class="text-5xl md:text-7xl font-black my-4 text-orange-400">R$ 19,90</p>
                     <p class="mb-8 font-bold">(Pagamento Único)</p>
-                    <a href="https://pay.hotmart.com/P101741907P?checkoutMode=10" class="cta-button inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-lg shadow-lg">
+                    <a href="https://pay.hotmart.com/P101741907P?checkoutMode=2" class="hotmart-fb cta-button inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-lg shadow-lg">
                         👉 QUERO MINHA LIBERDADE AGORA! 👈
                     </a>
                     <div class="flex justify-center items-center gap-4 mt-8">
@@ -221,7 +250,7 @@
                      </div>
                  </div>
                  <p class="text-2xl font-bold my-10">A escolha inteligente está a um clique de distância.</p>
-                 <a href="#oferta" class="cta-button inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-lg shadow-lg">
+                 <a href="https://pay.hotmart.com/P101741907P?checkoutMode=2" class="hotmart-fb cta-button inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-lg shadow-lg">
                     👉 EU ESCOLHO A LIBERDADE POR APENAS R$19,90 👈
                 </a>
              </div>
@@ -260,6 +289,5 @@
     </script>
 </body>
 </html>
-
 
 
