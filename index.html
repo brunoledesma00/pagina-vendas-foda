@@ -3,192 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabor Livre | O Fim da Sua Prisão Alimentar</title>
+    <title>Comer Sem Medo - A Liberdade de Comer Bem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Poppins:wght@700&display=swap" rel="stylesheet">
-    
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '778205437953074');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=778205437953074&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --cor-fundo: #ffffff;
-            --cor-texto: #111111;
-            --cor-destaque: #008000;
-            --cor-destaque-forte: #ffbf00;
-            --cor-cta: #ff4500;
-            --cor-cta-hover: #e03e00;
-        }
         body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.8;
-            margin: 0;
-            padding: 0;
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto);
+            font-family: 'Poppins', sans-serif;
         }
-        .container { max-width: 750px; margin: auto; padding: 20px; }
-        h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; color: #000; line-height: 1.2; }
-        h1 { font-size: 2.8em; text-align: center; }
-        h2 { font-size: 2.2em; }
-        .highlight { background-color: var(--cor-destaque-forte); padding: 2px 6px; }
-        .sub-headline { font-size: 1.2em; text-align: center; color: #555; margin-bottom: 40px; }
-        .warning-box { background-color: #ffecec; border: 2px solid #ff3b30; border-radius: 8px; padding: 20px; text-align: center; margin: 40px 0; }
-        .warning-box h3 { color: #ff3b30; margin-top: 0; }
-        .section { margin-bottom: 50px; }
-        .lista-check li { list-style-type: '✓ '; padding-left: 10px; font-size: 1.1em; margin-bottom: 10px; }
         .cta-button {
-            display: block;
-            background-color: var(--cor-cta);
-            color: #ffffff;
-            padding: 25px;
-            text-decoration: none;
-            font-size: 1.8em;
-            font-weight: 900;
-            border-radius: 12px;
-            margin: 30px 0;
-            transition: all 0.2s ease-in-out;
-            text-transform: uppercase;
-            text-align: center;
-            border-bottom: 6px solid #b33100;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .cta-button:hover { background-color: var(--cor-cta-hover); transform: translateY(-2px); }
-        .creator-section { display: flex; align-items: center; gap: 25px; background: #f0f0f0; padding: 20px; border-radius: 8px; margin: 40px 0; }
-        .creator-section img { max-width: 120px; border-radius: 50%; }
-        .app-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .app-gallery img { width: 100%; border-radius: 8px; border: 2px solid #ddd; }
-        .testimonial-card { background-color: #f9f9f9; border-left: 5px solid var(--cor-destaque); padding: 20px; margin-bottom: 20px; }
-        .testimonial-author-info { display: flex; align-items: center; margin-top: 15px; }
-        .testimonial-author-info img { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; }
-        .testimonial-author { font-weight: 700; }
-        .price-box { background: #f0fff0; border: 3px dashed var(--cor-destaque); padding: 30px; text-align: center; }
-        .price { font-size: 6em; font-weight: 900; color: var(--cor-texto); }
-        .old-price { font-size: 1.5em; text-decoration: line-through; color: #888; }
-        .guarantee { text-align: center; }
-        .guarantee img { max-width: 120px; }
-        .ps-section { border-top: 2px solid #ccc; margin-top: 40px; padding-top: 20px; }
-        .security-info { margin-top: 25px; text-align: center; }
-        .security-info p { font-size: 0.9em; color: #555; margin-bottom: 10px; }
-        .security-info img { max-width: 300px; opacity: 0.8; }
-        @media (max-width: 600px) {
-            h1 { font-size: 2.2em; }
-            h2 { font-size: 1.8em; }
-            .creator-section { flex-direction: column; }
-            .cta-button { font-size: 1.3em; padding: 20px; }
-            .price { font-size: 4.5em; }
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+        .faq-question {
+            cursor: pointer;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50">
 
-<div class="container">
-    <div class="section">
-        <h1>Isso também acontece com você?</h1>
-        <p class="sub-headline">Seja brutalmente honesto(a) e veja se você se identifica...</p>
-        <ul class="lista-check">
-            <li>Você come algo que ama e, minutos depois, sua barriga infla como um balão?</li>
-            <li>Você já recusou um convite para jantar fora pelo medo de passar mal ou não ter o que comer?</li>
-            <li>Você acorda todos os dias com uma sensação de cansaço, como se não tivesse dormido nada?</li>
-            <li>Você sente que sua vida social, sua energia e até sua autoestima são reféns da sua digestão?</li>
-        </ul>
-        <p>Se você respondeu "SIM" para qualquer uma dessas perguntas... eu sei exatamente como você se sente. E eu preciso que você saiba de uma coisa: <strong>a culpa não é sua.</strong></p>
-    </div>
+    <!-- SEÇÃO DA CHAMADA PRINCIPAL -->
+    <header class="bg-gray-900 text-white shadow-xl">
+        <div class="container mx-auto px-6 py-12 md:py-20 text-center">
+            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4 text-orange-400">Cansado de Viver com Medo da Comida e com a Barriga Inchada?</h1>
+            <p class="text-lg md:text-2xl mb-8 max-w-3xl mx-auto text-gray-300">Chega de se sentir de fora nos jantares em família e encontros com amigos. Tenha no seu bolso o arsenal para comer o que quiser, quando quiser, sem passar mal ou vergonha.</p>
+            <a href="#oferta" class="cta-button inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-lg shadow-lg animate-pulse">
+                👉 QUERO MINHA LIBERDADE POR R$19,90 👈
+            </a>
+            <p class="mt-4 text-sm text-gray-500">Acesso vitalício. Pagamento único.</p>
+        </div>
+    </header>
 
-    <div class="warning-box">
-        <h3>PARE DE SE CULPAR AGORA!</h3>
-        <p>Você foi enganado. A indústria alimentícia te vende veneno disfarçado de comida. Os médicos te entopem de remédios que só mascaram os sintomas. E os "gurus" te passam dietas restritivas que te deixam infeliz e com fome. Eles lucram com a sua dor. Chega de ser a vítima.</p>
-    </div>
-
-    <div class="section">
-        <h2>A reviravolta que salvou a minha vida (e que vai salvar a sua)</h2>
-        <div class="creator-section">
-            <img src="https://i.imgur.com/uBGhHAY.png" alt="Foto de Maria Eduarda Ribeiro">
-            <div>
-                <p><strong>De: Maria Eduarda Ribeiro</strong><br>
-                Eu era essa pessoa. Eu recusava aniversários. Eu tinha medo de viajar. Eu olhava no espelho e via uma pessoa cansada, inchada e frustrada. Minha vida era planejada entre a cozinha e o banheiro.</p>
-                <p>Até o dia que eu decidi dar um basta. Mergulhei fundo, estudei como uma louca, testei centenas de ingredientes e receitas. Eu não queria uma dieta. Eu queria a minha vida de volta. E eu consegui.</p>
+    <main>
+        <!-- SEÇÃO DA DOR REAL (VERSÃO TURBINADA COM VENENO) -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Seu corpo dá o alarme. Sua vida social paga o preço.</h2>
+                <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">Se você tem sensibilidade ao glúten ou lactose, sabe que o problema vai muito além de um simples "desconforto". É um ciclo de dor e frustração. Veja se você se identifica:</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <!-- Coluna da Dor Física -->
+                    <div class="bg-red-50 p-8 rounded-lg shadow-lg border-t-4 border-red-500">
+                        <h3 class="font-bold text-2xl mb-4 text-red-700">O INFERNO FÍSICO</h3>
+                        <p class="mb-6 text-gray-700">Basta um deslize, uma contaminação cruzada, e o castigo vem rápido:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="text-red-500 mr-3 font-bold">»</span>A barriga que vira um balão, causando dor e vergonha.</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-3 font-bold">»</span>Gases incontroláveis que te deixam em pânico em público.</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-3 font-bold">»</span>A urgência de correr para o banheiro, rezando para chegar a tempo.</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-3 font-bold">»</span>A fadiga inexplicável e a "névoa mental" que destroem sua produtividade.</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-3 font-bold">»</span>Dores de cabeça, problemas de pele e um mal-estar que ninguém entende.</li>
+                        </ul>
+                    </div>
+                    <!-- Coluna da Dor Social/Emocional -->
+                    <div class="bg-blue-50 p-8 rounded-lg shadow-lg border-t-4 border-blue-500">
+                        <h3 class="font-bold text-2xl mb-4 text-blue-700">A PRISÃO SOCIAL E EMOCIONAL</h3>
+                        <p class="mb-6 text-gray-700">Mas a dor que ninguém vê é, muitas vezes, a pior de todas:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="text-blue-500 mr-3 font-bold">»</span>A ansiedade antes de qualquer evento social que envolva comida.</li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-3 font-bold">»</span>Sentir-se um fardo para amigos e familiares ao escolher um restaurante.</li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-3 font-bold">»</span>O isolamento de ver todos comendo pizza e você... uma salada.</li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-3 font-bold">»</span>A exaustão mental de ter que ler cada rótulo e questionar cada ingrediente.</li>
+                             <li class="flex items-start"><span class="text-blue-500 mr-3 font-bold">»</span>A frustração de simplesmente não poder comer algo que você ama.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-center text-2xl font-bold mt-16 text-gray-800">Você não precisa mais viver nessa prisão. Existe uma saída.</p>
             </div>
-        </div>
-        <p>Eu descobri que era possível comer pão, pizza, bolo... TUDO o que eu amava... sem dor, sem inchaço e sem culpa. Eu só precisava do "mapa" certo. Então, eu cataloguei cada descoberta, cada receita, cada truque... e transformei tudo isso em uma ferramenta à prova de falhas.</p>
-    </div>
-    
-    <div class="section">
-        <h2>Apresento o seu novo Centro de Comando: <span class="highlight">Sabor Livre</span></h2>
-        <p>Isso não é um "livro de receitas". É a sua liberdade dentro de um app. A ferramenta exata que eu uso todos os dias para comer com prazer e viver com energia máxima. Dê uma espiada no que te espera:</p>
-        <div class="app-gallery">
-            <img src="https://i.imgur.com/jKJazxP.png" alt="Tela com receitas deliciosas">
-            <img src="https://i.imgur.com/3t1yATJ.png" alt="Busca fácil por ingredientes">
-            <img src="https://i.imgur.com/OHoCaqi.png" alt="Categorias como café da manhã">
-            <img src="https://i.imgur.com/JeCQYgi.png" alt="Receitas de almoço e jantar">
-            <img src="https://i.imgur.com/RIwNyG4.png" alt="Opções de lanches práticos">
-            <img src="https://i.imgur.com/gONGcDZ.png" alt="Lista de compras inteligente">
-        </div>
-    </div>
+        </section>
 
-    <a href="https://go.perfectpay.com.br/PPU38CQ02PT" class="cta-button">SIM! QUERO MINHA LIBERDADE DE VOLTA AGORA!</a>
-
-    <div class="section">
-        <h2>Veja o que pessoas reais, que estavam na mesma merda que você, estão dizendo:</h2>
-        <div class="testimonial-card">
-            <p>"Eu achei que estava condenada. Em 1 semana usando o app, parecia que tinham tirado 10kg de peso de dentro de mim. É surreal. Obrigada, Maria Eduarda, por me devolver a vida."</p>
-            <div class="testimonial-author-info">
-                <img src="https://i.imgur.com/iPb6Tl7.png" alt="Foto de Juliana M.">
-                <span class="testimonial-author">Juliana M., 34 anos</span>
+        <!-- SEÇÃO DA SOLUÇÃO DEFINITIVA -->
+        <section class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/500x700/E2E8F0/4A5568?text=Print+Foda+do+App" alt="Aplicativo Comer Sem Medo" class="rounded-lg shadow-2xl mx-auto">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Apresentamos o App <span class="text-orange-500">"Comer Sem Medo"</span></h2>
+                    <p class="text-lg mb-6 text-gray-700">O único aplicativo que você precisa para transformar sua alimentação restritiva em um banquete diário. Nós pegamos TODAS as receitas que você ama e criamos versões 100% seguras, deliciosas e fáceis de seguir (sim, até quem não tem prática na cozinha consegue fazer).</p>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span><strong class="mr-2">BUSCA ANTI-PÂNICO:</strong> Digite "lasanha" e ache em 3 segundos.</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span><strong class="mr-2">FILTRO "SOBREVIVÊNCIA SOCIAL":</strong> Para churrascos, festas e jantares.</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span><strong class="mr-2">LISTA DE COMPRAS INTELIGENTE:</strong> Marcou a receita, a lista tá pronta.</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span><strong class="mr-2">+300 RECEITAS E ATUALIZAÇÕES:</strong> O arsenal é infinito e nunca para de crescer!</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="testimonial-card">
-            <p>"Eu sou atleta amador e vivia sem energia. Achei que era cansaço do treino. Era a comida. Mudei minha alimentação com o app e minha performance explodiu. É um divisor de águas."</p>
-            <div class="testimonial-author-info">
-                <img src="https://i.imgur.com/NcC4AUd.png" alt="Foto de Ricardo P.">
-                <span class="testimonial-author">Ricardo P., 28 anos</span>
+        </section>
+
+        <!-- SEÇÃO DE PROVA SOCIAL HUMANIZADA -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Essa não é só a nossa opinião...</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Depoimento 1 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg border-t-4 border-orange-500">
+                        <p class="text-gray-700 italic mb-4">"Eu chorei quando consegui fazer o bolo de aniversário do meu filho e comer o MESMO bolo que ele pela primeira vez. Antes, eu sempre ficava de fora com um pedaço de fruta. Esse app não me deu só receitas, me deu de volta momentos em família que o dinheiro não compra."</p>
+                        <div class="flex items-center"><img src="https://placehold.co/64x64/E2E8F0/4A5568?text=M" alt="Mariana S." class="w-12 h-12 rounded-full mr-4"><div><p class="font-bold">Mariana S.</p><p class="text-sm text-gray-600">São Paulo, SP</p></div></div>
+                    </div>
+                    <!-- Depoimento 2 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg border-t-4 border-orange-500">
+                        <p class="text-gray-700 italic mb-4">"Minha maior ansiedade era happy hour com a galera do trabalho. Sempre acabava comendo amendoim. Semana passada, levei umas coxinhas de batata doce do app, todo mundo comeu e amou. Ninguém nem desconfiou. Foi a primeira vez em anos que me senti normal."</p>
+                        <div class="flex items-center"><img src="https://placehold.co/64x64/E2E8F0/4A5568?text=L" alt="Lucas T." class="w-12 h-12 rounded-full mr-4"><div><p class="font-bold">Lucas T.</p><p class="text-sm text-gray-600">Belo Horizonte, MG</p></div></div>
+                    </div>
+                    <!-- Depoimento 3 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg border-t-4 border-orange-500">
+                        <p class="text-gray-700 italic mb-4">"Eu viajava a trabalho e era um caos. Vivia de salada e fruta de hotel. Agora, eu uso o filtro 'refeição rápida' e consigo fazer coisas gostosas e seguras até no micro-ondas do quarto. Mudou completamente minha rotina e meu humor."</p>
+                        <div class="flex items-center"><img src="https://placehold.co/64x64/E2E8F0/4A5568?text=F" alt="Fernanda P." class="w-12 h-12 rounded-full mr-4"><div><p class="font-bold">Fernanda P.</p><p class="text-sm text-gray-600">Curitiba, PR</p></div></div>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- SEÇÃO DA OFERTA IRRECUSÁVEL -->
+        <section id="oferta" class="py-16 md:py-24 bg-gray-900 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Receba seu Acesso Vitalício Agora Mesmo!</h2>
+                <p class="text-lg text-gray-400 mb-10">Sem mensalidades. Sem pegadinhas. Um único pagamento para ter paz de espírito para sempre.</p>
+                <div class="bg-gray-800 rounded-lg p-8 max-w-2xl mx-auto border border-orange-500 shadow-2xl">
+                    <div class="mb-6">
+                        <img src="https://i.imgur.com/TSSauiJ.png" alt="Mockup do App" class="rounded-lg shadow-lg mx-auto">
+                    </div>
+                    <p class="text-xl">Acesso Ilimitado e Para Sempre por apenas:</p>
+                    <p class="text-5xl md:text-7xl font-black my-4 text-orange-400">R$ 19,90</p>
+                    <p class="mb-8 font-bold">(Pagamento Único)</p>
+                    <a href="#comprar" class="cta-button inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-lg shadow-lg">
+                        👉 QUERO MINHA LIBERDADE AGORA! 👈
+                    </a>
+                    <div class="flex justify-center items-center gap-4 mt-8">
+                        <div class="flex items-center gap-2 text-sm text-gray-300"><svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>Compra Segura</div>
+                        <div class="flex items-center gap-2 text-sm text-gray-300"><svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>Acesso Imediato</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SEÇÃO DE GARANTIA DEDICADA -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <img src="https://placehold.co/150x150/E2E8F0/4A5568?text=Selo+de+Garantia" alt="Selo de Garantia 7 Dias" class="mx-auto mb-6 h-32 w-32">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Sua Satisfação ou seu Dinheiro de Volta. Simples Assim.</h2>
+                    <p class="text-lg text-gray-700 mb-6">Temos tanta confiança que o "Comer Sem Medo" vai transformar sua vida que oferecemos uma garantia incondicional de 7 dias. Baixe o app, teste todas as receitas, use e abuse de todas as funcionalidades. Se, por qualquer motivo, você não sentir que este foi o melhor investimento de R$19,90 que já fez, basta nos enviar um único e-mail e nós devolvemos 100% do seu dinheiro. Sem perguntas, sem ressentimentos.</p>
+                    <p class="font-bold text-gray-600">O risco é todo nosso. Você não tem absolutamente nada a perder.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE FAQ -->
+        <section class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Perguntas Frequentes</h2>
+                <div class="max-w-3xl mx-auto space-y-4" id="faq-container">
+                    <!-- Pergunta 1 -->
+                    <div class="bg-white rounded-lg shadow-md border-l-4 border-orange-500">
+                        <div class="faq-question p-5 flex justify-between items-center">
+                            <h3 class="font-bold text-lg">Preciso ser um expert na cozinha para usar o app?</h3>
+                            <span class="text-2xl font-bold text-orange-500 transform transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-answer px-5 pb-5 text-gray-700">
+                            <p>De jeito nenhum! Nossas receitas foram criadas para serem à prova de erros. Temos desde pratos super simples de 15 minutos até opções mais elaboradas, mas todas com um passo a passo claro e direto para que qualquer pessoa consiga fazer.</p>
+                        </div>
+                    </div>
+                    <!-- Pergunta 2 -->
+                    <div class="bg-white rounded-lg shadow-md border-l-4 border-orange-500">
+                        <div class="faq-question p-5 flex justify-between items-center">
+                            <h3 class="font-bold text-lg">O pagamento de R$19,90 é único mesmo?</h3>
+                            <span class="text-2xl font-bold text-orange-500 transform transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-answer px-5 pb-5 text-gray-700">
+                            <p>Sim! É um pagamento único que te dá acesso VITALÍCIO ao aplicativo e a todas as futuras atualizações e novas receitas. Sem mensalidades, anuidades ou qualquer outra cobrança escondida.</p>
+                        </div>
+                    </div>
+                    <!-- Pergunta 3 -->
+                    <div class="bg-white rounded-lg shadow-md border-l-4 border-orange-500">
+                        <div class="faq-question p-5 flex justify-between items-center">
+                            <h3 class="font-bold text-lg">Receberei novas receitas depois de comprar?</h3>
+                            <span class="text-2xl font-bold text-orange-500 transform transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-answer px-5 pb-5 text-gray-700">
+                            <p>Com certeza! Nosso time de culinaristas está sempre desenvolvendo e adicionando novas receitas ao aplicativo. Seu acesso vitalício garante que você receberá todas elas sem custo adicional.</p>
+                        </div>
+                    </div>
+                    <!-- Pergunta 4 -->
+                    <div class="bg-white rounded-lg shadow-md border-l-4 border-orange-500">
+                        <div class="faq-question p-5 flex justify-between items-center">
+                            <h3 class="font-bold text-lg">Como funciona o cancelamento dentro dos 7 dias?</h3>
+                            <span class="text-2xl font-bold text-orange-500 transform transition-transform duration-300">+</span>
+                        </div>
+                        <div class="faq-answer px-5 pb-5 text-gray-700">
+                            <p>É simples e sem burocracia. Se você decidir que o app não é para você dentro do prazo de 7 dias, basta nos enviar um e-mail para [seuemail@suporte.com] com o assunto "Reembolso" e nós processaremos a devolução total do seu pagamento, sem fazer nenhuma pergunta.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DO EMPURRÃO FINAL -->
+        <section class="py-16 md:py-24 bg-white">
+             <div class="container mx-auto px-6 text-center">
+                 <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-800">Você tem duas opções agora:</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                     <div class="bg-red-100 border-l-4 border-red-500 p-6 rounded-lg text-left">
+                        <h3 class="font-bold text-xl mb-2">OPÇÃO 1 (Continuar na prisão)</h3>
+                        <p>Continuar refém da comida, com o corpo sofrendo e a vida social limitada, sempre com medo do próximo prato.</p>
+                     </div>
+                     <div class="bg-green-100 border-l-4 border-green-500 p-6 rounded-lg text-left">
+                        <h3 class="font-bold text-xl mb-2">OPÇÃO 2 (A escolha da liberdade)</h3>
+                        <p>Fazer um investimento único e minúsculo para ter acesso vitalício a centenas de receitas e finalmente redescobrir o prazer de comer sem culpa, sem dor e sem medo.</p>
+                     </div>
+                 </div>
+                 <p class="text-2xl font-bold my-10">A escolha inteligente está a um clique de distância.</p>
+                 <a href="#oferta" class="cta-button inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-lg shadow-lg">
+                    👉 EU ESCOLHO A LIBERDADE POR APENAS R$19,90 👈
+                </a>
+             </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-6">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>© 2025 Comer Sem Medo. Todos os direitos reservados.</p>
+            <p>Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.</p>
         </div>
-    </div>
+    </footer>
+    <script>
+        document.getElementById('faq-container').addEventListener('click', function (e) {
+            const question = e.target.closest('.faq-question');
+            if (!question) return;
 
-    <div class="section price-box">
-        <h2>OK, qual o investimento para ter a minha vida de volta?</h2>
-        <p>Eu poderia facilmente cobrar R$197 por este acesso. E seria justo. É o preço de uma única consulta que não resolve seu problema.</p>
-        <p>Mas eu não quero que o dinheiro seja um impedimento. Eu quero que você sinta o que eu senti. Por isso, hoje, você não vai pagar <span class="old-price">R$197</span>.</p>
-        <p>Seu investimento para o acesso VITALÍCIO ao Sabor Livre é de apenas:</p>
-        <img src="https://i.imgur.com/GB2ebj4.png" alt="Mockup do App Sabor Livre" style="max-width: 300px; margin: 20px auto; border-radius: 12px; border: 2px solid #ddd;">
-        <p class="price">R$19.90</p>
-        <p>Sim, você leu certo. Menos que uma pizza que te faria mal. Pagamento único. Sem mensalidades.</p>
-        <a href="https://pay.hotmart.com/P101741907P?checkoutMode=10" class="cta-button">GARANTIR MEU ACESSO VITALÍCIO POR R$19.90</a>
-    </div>
+            const answer = question.nextElementSibling;
+            const icon = question.querySelector('span');
 
-    <div class="section guarantee">
-        <h2>Sua decisão é 100% livre de risco</h2>
-        <img src="https://i.imgur.com/dKIhan6.png" alt="Selo de Garantia Blindada">
-        <p>Use o Sabor Livre por 7 dias. Se você não sentir uma transformação ABSURDA no seu corpo e no seu humor, eu exijo que você peça seu dinheiro de volta. Eu devolvo cada centavo, sem perguntas, sem ressentimento. O risco é todo meu.</p>
-    </div>
+            if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
+                answer.style.maxHeight = '0px';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Fecha todas as outras respostas abertas
+                const allAnswers = document.querySelectorAll('.faq-answer');
+                const allIcons = document.querySelectorAll('.faq-question span');
+                allAnswers.forEach(a => a.style.maxHeight = '0px');
+                allIcons.forEach(i => i.style.transform = 'rotate(0deg)');
 
-    <div class="ps-section">
-        <p><strong>P.S.:</strong> Você tem duas escolhas. Continuar no ciclo de dor e frustração, ou fazer um investimento ridículo de R$19.90 e ter a chance de mudar sua vida para sempre. A escolha parece bem óbvia pra mim.</p>
-        <p><strong>P.P.S.:</strong> Esse valor é promocional de lançamento. Não posso garantir que ele continuará assim por muito tempo. A hora de agir é agora.</p>
-    </div>
-
-</div>
-
+                // Abre a resposta clicada
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.style.transform = 'rotate(45deg)';
+            }
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
