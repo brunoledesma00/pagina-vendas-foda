@@ -1,294 +1,383 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comer Sem Medo - A Liberdade de Comer Bem</title>
+    <title>Comer sem Medo | A Liberdade de Comer o que Você Ama</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.95) 0%, #111827 100%);
         }
         .cta-button {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0px 10px 20px rgba(251, 191, 36, 0.25);
         }
         .cta-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0px 15px 25px rgba(251, 191, 36, 0.4);
         }
-        .faq-question {
-            cursor: pointer;
+        .testimonial-card {
+            background: #1F2937;
         }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
+        .reveal {
+            position: relative;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+        .reveal.active {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        /* Spinner */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #f59e0b;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Modal Styles */
+        .modal-content {
+            white-space: pre-wrap;
         }
     </style>
-    <script type="text/javascript">
-        function importHotmart(){ 
-            var imported = document.createElement('script'); 
-            imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
-            document.head.appendChild(imported); 
-            var link = document.createElement('link'); 
-            link.rel = 'stylesheet'; 
-            link.type = 'text/css'; 
-            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
-            document.head.appendChild(link);	} 
-        importHotmart(); 
-    </script>
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '778205437953074');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=778205437953074&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-900 text-gray-200">
 
-    <!-- SEÇÃO DA CHAMADA PRINCIPAL -->
-    <header class="bg-gray-900 text-white shadow-xl">
-        <div class="container mx-auto px-6 py-12 md:py-20 text-center">
-            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4 text-orange-400">Cansado de Viver com Medo da Comida e com a Barriga Inchada?</h1>
-            <p class="text-lg md:text-2xl mb-8 max-w-3xl mx-auto text-gray-300">Chega de se sentir de fora nos jantares em família e encontros com amigos. Tenha no seu bolso o arsenal para comer o que quiser, quando quiser, sem passar mal ou vergonha.</p>
-            <a href="https://pay.hotmart.com/P101741907P?checkoutMode=10" class="hotmart-fb cta-button inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-lg shadow-lg animate-pulse">
-                👉 QUERO MINHA LIBERDADE POR R$19,90 👈
+    <!-- HERO SECTION -->
+    <header class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <video playsinline autoplay muted loop poster="https://placehold.co/1200x800/000000/ffffff?text=Video+de+comida+deliciosa" class="w-full h-full object-cover opacity-20">
+                <!-- Use um vídeo de verdade aqui. Um loop de uma receita sendo preparada -->
+                <!-- <source src="caminho/para/seu/video.mp4" type="video/mp4"> -->
+            </video>
+        </div>
+        <div class="hero-gradient absolute inset-0 z-10"></div>
+        <div class="container mx-auto px-6 relative z-20 reveal">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                Sua comida virou sua inimiga?
+            </h1>
+            <p class="mt-4 text-lg md:text-xl text-amber-400 max-w-3xl mx-auto">
+                Imagine comer pizzas, bolos e pães deliciosos novamente, sem inchaço, sem dor e sem culpa. Com o Comer sem Medo, isso não é um sonho. É a sua nova realidade.
+            </p>
+            <a href="#oferta" class="cta-button mt-8 inline-block bg-amber-500 text-gray-900 font-bold text-xl py-4 px-12 rounded-full uppercase tracking-wider">
+                Quero Minha Liberdade de Volta
             </a>
-            <p class="mt-4 text-sm text-gray-500">Acesso vitalício. Pagamento único.</p>
         </div>
     </header>
 
     <main>
-        <!-- SEÇÃO DA DOR REAL (VERSÃO TURBINADA COM VENENO) -->
-        <section class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-800">Seu corpo dá o alarme. Sua vida social paga o preço.</h2>
-                <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">Se você tem sensibilidade ao glúten ou lactose, sabe que o problema vai muito além de um simples "desconforto". É um ciclo de dor e frustração. Veja se você se identifica:</p>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                    <!-- Coluna da Dor Física -->
-                    <div class="bg-red-50 p-8 rounded-lg shadow-lg border-t-4 border-red-500">
-                        <h3 class="font-bold text-2xl mb-4 text-red-700">O INFERNO FÍSICO</h3>
-                        <p class="mb-6 text-gray-700">Basta um deslize, uma contaminação cruzada, e o castigo vem rápido:</p>
-                        <ul class="space-y-3">
-                            <li class="flex items-start"><span class="text-red-500 mr-3 font-bold">»</span>A barriga que vira um balão, causando dor e vergonha.</li>
-                            <li class="flex items-start"><span class="text-red-500 mr-3 font-bold">»</span>Gases incontroláveis que te deixam em pânico em público.</li>
-                            <li class="flex items-start"><span class="text-red-500 mr-3 font-bold">»</span>A urgência de correr para o banheiro, rezando para chegar a tempo.</li>
-                            <li class="flex items-start"><span class="text-red-500 mr-3 font-bold">»</span>A fadiga inexplicável e a "névoa mental" que destroem sua produtividade.</li>
-                            <li class="flex items-start"><span class="text-red-500 mr-3 font-bold">»</span>Dores de cabeça, problemas de pele e um mal-estar que ninguém entende.</li>
-                        </ul>
-                    </div>
-                    <!-- Coluna da Dor Social/Emocional -->
-                    <div class="bg-blue-50 p-8 rounded-lg shadow-lg border-t-4 border-blue-500">
-                        <h3 class="font-bold text-2xl mb-4 text-blue-700">A PRISÃO SOCIAL E EMOCIONAL</h3>
-                        <p class="mb-6 text-gray-700">Mas a dor que ninguém vê é, muitas vezes, a pior de todas:</p>
-                        <ul class="space-y-3">
-                            <li class="flex items-start"><span class="text-blue-500 mr-3 font-bold">»</span>A ansiedade antes de qualquer evento social que envolva comida.</li>
-                            <li class="flex items-start"><span class="text-blue-500 mr-3 font-bold">»</span>Sentir-se um fardo para amigos e familiares ao escolher um restaurante.</li>
-                            <li class="flex items-start"><span class="text-blue-500 mr-3 font-bold">»</span>O isolamento de ver todos comendo pizza e você... uma salada.</li>
-                            <li class="flex items-start"><span class="text-blue-500 mr-3 font-bold">»</span>A exaustão mental de ter que ler cada rótulo e questionar cada ingrediente.</li>
-                             <li class="flex items-start"><span class="text-blue-500 mr-3 font-bold">»</span>A frustração de simplesmente não poder comer algo que você ama.</li>
-                        </ul>
-                    </div>
+        <!-- SEÇÃO "PARA QUEM É": CONEXÃO IMEDIATA -->
+        <section class="py-20 bg-gray-800">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Se você vive esse inferno, o Comer sem Medo é a sua salvação.</h2>
+                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-900 p-6 rounded-xl"><p>Para quem se sente <span class="text-amber-400 font-semibold">excluído em jantares</span> e festas.</p></div>
+                    <div class="bg-gray-900 p-6 rounded-xl"><p>Para quem já gastou rios de dinheiro com <span class="text-amber-400 font-semibold">produtos sem gosto</span>.</p></div>
+                    <div class="bg-gray-900 p-6 rounded-xl"><p>Para quem tem medo de comer e <span class="text-amber-400 font-semibold">passar mal logo depois</span>.</p></div>
+                    <div class="bg-gray-900 p-6 rounded-xl"><p>Para quem só quer voltar a ter <span class="text-amber-400 font-semibold">prazer em uma refeição</span> simples.</p></div>
                 </div>
-                <p class="text-center text-2xl font-bold mt-16 text-gray-800">Você não precisa mais viver nessa prisão. Existe uma saída.</p>
             </div>
         </section>
 
-        <!-- SEÇÃO DA SOLUÇÃO DEFINITIVA -->
-        <section class="py-16 md:py-24 bg-gray-100">
-            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+        <!-- SEÇÃO DA TRANSFORMAÇÃO: A SOLUÇÃO -->
+        <section class="py-20">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 reveal">
                 <div class="md:w-1/2">
-                    <img src="https://i.imgur.com/QP7eQcc.png" alt="Aplicativo Comer Sem Medo" class="rounded-lg shadow-2xl mx-auto">
+                    <img src="https://placehold.co/600x600/1f2937/f59e0b?text=[Screenshot+do+App+Comer+sem+Medo]" alt="Interface do aplicativo Comer sem Medo" class="rounded-xl shadow-2xl">
                 </div>
                 <div class="md:w-1/2">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Apresentamos o App <span class="text-orange-500">"Comer Sem Medo"</span></h2>
-                    <p class="text-lg mb-6 text-gray-700">O único aplicativo que você precisa para transformar sua alimentação restritiva em um banquete diário. Nós pegamos TODAS as receitas que você ama e criamos versões 100% seguras, deliciosas e fáceis de seguir (sim, até quem não tem prática na cozinha consegue fazer).</p>
-                    <ul class="space-y-4 text-lg">
-                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span><strong class="mr-2">BUSCA ANTI-PÂNICO:</strong> Digite "lasanha" e ache em 3 segundos.</li>
-                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span><strong class="mr-2">FILTRO "SOBREVIVÊNCIA SOCIAL":</strong> Para churrascos, festas e jantares.</li>
-                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span><strong class="mr-2">LISTA DE COMPRAS INTELIGENTE:</strong> Marcou a receita, a lista tá pronta.</li>
-                        <li class="flex items-start"><span class="text-green-500 mr-3 text-2xl">✅</span><strong class="mr-2">+300 RECEITAS E ATUALIZAÇÕES:</strong> O arsenal é infinito e nunca para de crescer!</li>
+                    <span class="text-amber-400 font-semibold uppercase tracking-wider">A Liberdade a um Toque de Distância</span>
+                    <h2 class="mt-2 text-3xl md:text-4xl font-bold text-white">Chega de "não pode". Aqui, tudo pode.</h2>
+                    <p class="mt-4 text-gray-300">O Comer sem Medo transforma seu celular na cozinha dos seus sonhos. É um arsenal com centenas de receitas que são, ao mesmo tempo, seguras para você e incrivelmente deliciosas.</p>
+                    <ul class="mt-6 space-y-4">
+                        <li class="flex items-start"><svg class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span><span class="font-semibold text-white">Cozinhe como um Chef, mesmo sendo um desastre:</span> Vídeos curtos e passo a passo. Impossível errar.</span></li>
+                        <li class="flex items-start"><svg class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span><span class="font-semibold text-white">Economia Inteligente:</span> Pare de ser roubado por produtos caros. Faça em casa por uma fração do preço.</span></li>
+                        <li class="flex items-start"><svg class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span><span class="font-semibold text-white">Listas de Compras Automáticas:</span> Escolha as receitas da semana e o app cria sua lista de supermercado. É mágica.</span></li>
                     </ul>
                 </div>
             </div>
         </section>
-
-        <!-- SEÇÃO DE PROVA SOCIAL HUMANIZADA -->
-        <section class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Essa não é só a nossa opinião...</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- SEÇÃO DE DEPOIMENTOS (PROVA SOCIAL) -->
+        <section class="py-20 bg-gray-800">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Não acredite em mim. Acredite neles:</h2>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Depoimento 1 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg border-t-4 border-orange-500">
-                        <p class="text-gray-700 italic mb-4">"Eu chorei quando consegui fazer o bolo de aniversário do meu filho e comer o MESMO bolo que ele pela primeira vez. Antes, eu sempre ficava de fora com um pedaço de fruta. Esse app não me deu só receitas, me deu de volta momentos em família que o dinheiro não compra."</p>
-                        <div class="flex items-center"><img src="https://i.imgur.com/uBGhHAY.png" alt="Mariana S." class="w-12 h-12 rounded-full mr-4"><div><p class="font-bold">Mariana S.</p><p class="text-sm text-gray-600">São Paulo, SP</p></div></div>
+                    <div class="testimonial-card p-8 rounded-xl text-left">
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/50x50/ffffff/111827?text=M" class="w-12 h-12 rounded-full" alt="Foto de Mariana S.">
+                            <div class="ml-4">
+                                <p class="font-bold text-white">Mariana S.</p>
+                                <p class="text-sm text-amber-400">★★★★★</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-300">"Eu chorava achando que nunca mais ia comer um bolo fofinho. O Comer sem Medo não só me deu receitas, me deu minha alegria de volta. É sério, mudou minha vida."</p>
                     </div>
                     <!-- Depoimento 2 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg border-t-4 border-orange-500">
-                        <p class="text-gray-700 italic mb-4">"Minha maior ansiedade era happy hour com a galera do trabalho. Sempre acabava comendo amendoim. Semana passada, levei umas coxinhas de batata doce do app, todo mundo comeu e amou. Ninguém nem desconfiou. Foi a primeira vez em anos que me senti normal."</p>
-                        <div class="flex items-center"><img src="https://i.imgur.com/NcC4AUd.png" alt="Lucas T." class="w-12 h-12 rounded-full mr-4"><div><p class="font-bold">Lucas T.</p><p class="text-sm text-gray-600">Belo Horizonte, MG</p></div></div>
+                    <div class="testimonial-card p-8 rounded-xl text-left">
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/50x50/ffffff/111827?text=R" class="w-12 h-12 rounded-full" alt="Foto de Ricardo L.">
+                            <div class="ml-4">
+                                <p class="font-bold text-white">Ricardo L.</p>
+                                <p class="text-sm text-amber-400">★★★★★</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-300">"Sou um desastre na cozinha, mas os vídeos são tão diretos que até eu consigo fazer. A pizza de sexta à noite voltou a ser sagrada aqui em casa. Recomendo pra caralho!"</p>
                     </div>
                     <!-- Depoimento 3 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg border-t-4 border-orange-500">
-                        <p class="text-gray-700 italic mb-4">"Eu viajava a trabalho e era um caos. Vivia de salada e fruta de hotel. Agora, eu uso o filtro 'refeição rápida' e consigo fazer coisas gostosas e seguras até no micro-ondas do quarto. Mudou completamente minha rotina e meu humor."</p>
-                        <div class="flex items-center"><img src="https://i.imgur.com/m51E8Hw.png" alt="Fernanda P." class="w-12 h-12 rounded-full mr-4"><div><p class="font-bold">Fernanda P.</p><p class="text-sm text-gray-600">Curitiba, PR</p></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO DA OFERTA IRRECUSÁVEL -->
-        <section id="oferta" class="py-16 md:py-24 bg-gray-900 text-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Receba seu Acesso Vitalício Agora Mesmo!</h2>
-                <p class="text-lg text-gray-400 mb-10">Sem mensalidades. Sem pegadinhas. Um único pagamento para ter paz de espírito para sempre.</p>
-                <div class="bg-gray-800 rounded-lg p-8 max-w-2xl mx-auto border border-orange-500 shadow-2xl">
-                    <div class="mb-6">
-                        <img src="https://i.imgur.com/TSSauiJ.png" alt="Mockup do App" class="rounded-lg shadow-lg mx-auto">
-                    </div>
-                    <p class="text-xl">Acesso Ilimitado e Para Sempre por apenas:</p>
-                    <p class="text-5xl md:text-7xl font-black my-4 text-orange-400">R$ 19,90</p>
-                    <p class="mb-8 font-bold">(Pagamento Único)</p>
-                    <a href="https://pay.hotmart.com/P101741907P?checkoutMode=10" class="hotmart-fb cta-button inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-lg shadow-lg">
-                        👉 QUERO MINHA LIBERDADE AGORA! 👈
-                    </a>
-                    <div class="flex justify-center items-center gap-4 mt-8">
-                        <div class="flex items-center gap-2 text-sm text-gray-300"><svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>Compra Segura</div>
-                        <div class="flex items-center gap-2 text-sm text-gray-300"><svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>Acesso Imediato</div>
+                    <div class="testimonial-card p-8 rounded-xl text-left">
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/50x50/ffffff/111827?text=J" class="w-12 h-12 rounded-full" alt="Foto de Juliana F.">
+                            <div class="ml-4">
+                                <p class="font-bold text-white">Juliana F.</p>
+                                <p class="text-sm text-amber-400">★★★★★</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-300">"O melhor investimento que fiz pela minha saúde e meu bem-estar. O app é lindo, fácil de usar e as receitas... sem palavras. Comprem sem medo."</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- SEÇÃO DE GARANTIA DEDICADA -->
-        <section class="py-16 bg-white">
-            <div class="container mx-auto px-6 text-center">
-                <div class="max-w-3xl mx-auto">
-                    <img src="https://i.imgur.com/pBaPKhT.png" alt="Selo de Garantia 7 Dias" class="mx-auto mb-6 h-32 w-32">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Sua Satisfação ou seu Dinheiro de Volta. Simples Assim.</h2>
-                    <p class="text-lg text-gray-700 mb-6">Temos tanta confiança que o "Comer Sem Medo" vai transformar sua vida que oferecemos uma garantia incondicional de 7 dias. Baixe o app, teste todas as receitas, use e abuse de todas as funcionalidades. Se, por qualquer motivo, você não sentir que este foi o melhor investimento de R$19,90 que já fez, basta nos enviar um único e-mail e nós devolvemos 100% do seu dinheiro. Sem perguntas, sem ressentimentos.</p>
-                    <p class="font-bold text-gray-600">O risco é todo nosso. Você não tem absolutamente nada a perder.</p>
-                </div>
-            </div>
-        </section>
+        <!-- =================================================================== -->
+        <!-- NOVAS SEÇÕES COM IA -->
+        <!-- =================================================================== -->
+        <section class="py-20">
+            <div class="container mx-auto px-6 text-center reveal">
+                 <h2 class="text-3xl md:text-4xl font-bold text-white">E se o app pensasse por você?</h2>
+                 <p class="mt-4 max-w-3xl mx-auto text-gray-400">Agora pensa. Com o poder da nossa Inteligência Artificial, o Comer sem Medo virou o seu chef pessoal. Isso não existe em mais lugar nenhum.</p>
 
-        <!-- SEÇÃO DE FAQ -->
-        <section class="py-16 md:py-24 bg-gray-100">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Perguntas Frequentes</h2>
-                <div class="max-w-3xl mx-auto space-y-4" id="faq-container">
-                    <!-- Pergunta 1 -->
-                    <div class="bg-white rounded-lg shadow-md border-l-4 border-orange-500">
-                        <div class="faq-question p-5 flex justify-between items-center">
-                            <h3 class="font-bold text-lg">Preciso ser um expert na cozinha para usar o app?</h3>
-                            <span class="text-2xl font-bold text-orange-500 transform transition-transform duration-300">+</span>
+                <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Ferramenta 1: Gerador de Receitas -->
+                    <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-left">
+                        <h3 class="text-2xl font-bold text-amber-400">✨ Crie Sua Própria Magia</h3>
+                        <p class="mt-2 text-gray-300">Sua geladeira parece um deserto? Jogue os ingredientes que você tem aqui e nossa IA criará uma receita exclusiva, deliciosa e segura para você. Chega de desperdício.</p>
+                        <div class="mt-6">
+                            <label for="ingredients" class="font-semibold text-white">O que você tem aí, seu fudido?</label>
+                            <textarea id="ingredients" rows="4" class="mt-2 w-full bg-gray-900 border border-gray-600 rounded-lg p-3 text-white focus:ring-amber-500 focus:border-amber-500" placeholder="Ex: 2 ovos, frango, um pouco de arroz, tomate..."></textarea>
                         </div>
-                        <div class="faq-answer px-5 pb-5 text-gray-700">
-                            <p>De jeito nenhum! Nossas receitas foram criadas para serem à prova de erros. Temos desde pratos super simples de 15 minutos até opções mais elaboradas, mas todas com um passo a passo claro e direto para que qualquer pessoa consiga fazer.</p>
-                        </div>
+                        <button id="generate-recipe-btn" class="cta-button mt-4 w-full flex items-center justify-center bg-amber-500 text-gray-900 font-bold py-3 px-6 rounded-full uppercase">
+                            <span class="btn-text">Gerar Receita</span>
+                            <div class="loader hidden"></div>
+                        </button>
                     </div>
-                    <!-- Pergunta 2 -->
-                    <div class="bg-white rounded-lg shadow-md border-l-4 border-orange-500">
-                        <div class="faq-question p-5 flex justify-between items-center">
-                            <h3 class="font-bold text-lg">O pagamento de R$19,90 é único mesmo?</h3>
-                            <span class="text-2xl font-bold text-orange-500 transform transition-transform duration-300">+</span>
+
+                    <!-- Ferramenta 2: Adaptador de Receitas -->
+                     <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 text-left">
+                        <h3 class="text-2xl font-bold text-amber-400">✨ Transforme a Gororoba dos Outros</h3>
+                        <p class="mt-2 text-gray-300">Viu uma receita com glúten na internet e ficou babando? Copie e cole aqui. Nossa IA vai traduzir a receita para o seu mundo, com todas as substituições inteligentes.</p>
+                        <div class="mt-6">
+                            <label for="recipe-to-adapt" class="font-semibold text-white">Cola aqui a receita proibida:</label>
+                            <textarea id="recipe-to-adapt" rows="4" class="mt-2 w-full bg-gray-900 border border-gray-600 rounded-lg p-3 text-white focus:ring-amber-500 focus:border-amber-500" placeholder="Ex: Bolo de Trigo da Vovó..."></textarea>
                         </div>
-                        <div class="faq-answer px-5 pb-5 text-gray-700">
-                            <p>Sim! É um pagamento único que te dá acesso VITALÍCIO ao aplicativo e a todas as futuras atualizações e novas receitas. Sem mensalidades, anuidades ou qualquer outra cobrança escondida.</p>
-                        </div>
-                    </div>
-                    <!-- Pergunta 3 -->
-                    <div class="bg-white rounded-lg shadow-md border-l-4 border-orange-500">
-                        <div class="faq-question p-5 flex justify-between items-center">
-                            <h3 class="font-bold text-lg">Receberei novas receitas depois de comprar?</h3>
-                            <span class="text-2xl font-bold text-orange-500 transform transition-transform duration-300">+</span>
-                        </div>
-                        <div class="faq-answer px-5 pb-5 text-gray-700">
-                            <p>Com certeza! Nosso time de culinaristas está sempre desenvolvendo e adicionando novas receitas ao aplicativo. Seu acesso vitalício garante que você receberá todas elas sem custo adicional.</p>
-                        </div>
-                    </div>
-                    <!-- Pergunta 4 -->
-                    <div class="bg-white rounded-lg shadow-md border-l-4 border-orange-500">
-                        <div class="faq-question p-5 flex justify-between items-center">
-                            <h3 class="font-bold text-lg">Como funciona o cancelamento dentro dos 7 dias?</h3>
-                            <span class="text-2xl font-bold text-orange-500 transform transition-transform duration-300">+</span>
-                        </div>
-                        <div class="faq-answer px-5 pb-5 text-gray-700">
-                            <p>É simples e sem burocracia. Se você decidir que o app não é para você dentro do prazo de 7 dias, basta nos enviar um e-mail para [seuemail@suporte.com] com o assunto "Reembolso" e nós processaremos a devolução total do seu pagamento, sem fazer nenhuma pergunta.</p>
-                        </div>
+                         <button id="adapt-recipe-btn" class="cta-button mt-4 w-full flex items-center justify-center bg-amber-500 text-gray-900 font-bold py-3 px-6 rounded-full uppercase">
+                            <span class="btn-text">Adaptar Receita</span>
+                            <div class="loader hidden"></div>
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
+        
+        <!-- SEÇÃO DE OFERTA -->
+        <section id="oferta" class="py-20 bg-gray-800">
+            <div class="container mx-auto px-6 text-center reveal">
+                <div class="max-w-2xl mx-auto bg-gray-900 rounded-2xl border-2 border-amber-500 p-8 shadow-2xl">
+                    <h2 class="text-3xl font-extrabold text-white">Sua chance de ter TUDO ISSO hoje.</h2>
+                    <p class="mt-4 text-lg text-gray-300">Acesso vitalício a um universo de sabor, <span class="text-amber-400 font-bold">INCLUINDO AS FERRAMENTAS DE IA</span>, sem mensalidades, sem pegadinhas.</p>
+                    <div class="mt-6 bg-black p-6 rounded-lg text-left">
+                        <h3 class="font-bold text-white text-xl mb-4">O que você leva:</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Acesso VITALÍCIO ao App Comer sem Medo</li>
+                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Todas as Atualizações Futuras de Receitas</li>
+                            <li class="flex items-center font-bold text-amber-400"><svg class="w-5 h-5 text-amber-400 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Bônus: Ferramentas de IA (Valor Incalculável)</li>
+                             <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Bônus: Ebook "Sobremesas de Festa" (Valor R$47)</li>
+                        </ul>
+                    </div>
+                    <div class="my-8">
+                        <span class="text-xl text-gray-500 line-through">Tudo isso valeria R$97</span>
+                        <p class="text-sm text-white">Mas hoje, por um pagamento único de:</p>
+                        <p class="text-5xl font-extrabold text-white my-2"><span class="text-amber-400">R$19,90</span></p>
+                        <p class="font-semibold">Acesso vitalício. Pagamento único.</p>
+                    </div>
+                    <a href="#LINK_DO_CHECKOUT_AQUI" class="cta-button w-full inline-block bg-amber-500 text-gray-900 font-bold text-xl py-4 px-12 rounded-full uppercase tracking-wider">
+                        Sim, Quero o Futuro da Culinária!
+                    </a>
+                </div>
+            </div>
+        </section>
 
-        <!-- SEÇÃO DO EMPURRÃO FINAL -->
-        <section class="py-16 md:py-24 bg-white">
-             <div class="container mx-auto px-6 text-center">
-                 <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-800">Você tem duas opções agora:</h2>
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                     <div class="bg-red-100 border-l-4 border-red-500 p-6 rounded-lg text-left">
-                        <h3 class="font-bold text-xl mb-2">OPÇÃO 1 (Continuar na prisão)</h3>
-                        <p>Continuar refém da comida, com o corpo sofrendo e a vida social limitada, sempre com medo do próximo prato.</p>
-                     </div>
-                     <div class="bg-green-100 border-l-4 border-green-500 p-6 rounded-lg text-left">
-                        <h3 class="font-bold text-xl mb-2">OPÇÃO 2 (A escolha da liberdade)</h3>
-                        <p>Fazer um investimento único e minúsculo para ter acesso vitalício a centenas de receitas e finalmente redescobrir o prazer de comer sem culpa, sem dor e sem medo.</p>
-                     </div>
-                 </div>
-                 <p class="text-2xl font-bold my-10">A escolha inteligente está a um clique de distância.</p>
-                 <a href="https://pay.hotmart.com/P101741907P?checkoutMode=10" class="hotmart-fb cta-button inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl md:text-2xl py-4 px-10 rounded-lg shadow-lg">
-                    👉 EU ESCOLHO A LIBERDADE POR APENAS R$19,90 👈
-                </a>
-             </div>
+        <!-- SEÇÃO DE GARANTIA INABALÁVEL -->
+        <section class="py-20">
+            <div class="container mx-auto px-6 reveal">
+                <div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center bg-gray-800 rounded-2xl p-8 gap-8">
+                    <img src="https://placehold.co/150x150/f59e0b/111827?text=Selo+de+Garantia+7+Dias" alt="Selo de Garantia de 7 Dias" class="w-32 h-32 flex-shrink-0">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white">Sua Garantia Blindada de Risco Zero</h2>
+                        <p class="mt-2 text-gray-300">Funciona assim: você entra, testa TUDO por 7 dias. Faz a pizza, o bolo, o pão. BRINCA COM A INTELIGÊNCIA ARTIFICIAL. Se você não se apaixonar perdidamente, se não achar que foi o melhor dinheiro que já investiu, é só me mandar um email. Eu devolvo 100% do seu dinheiro na hora. Sem perguntas, sem ressentimentos. Ou você ama, ou é de graça. O risco é todo meu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-20 bg-gray-800">
+             <div class="container mx-auto px-6 max-w-3xl reveal">
+                <h2 class="text-3xl font-bold text-white text-center">Suas últimas dúvidas, respondidas.</h2>
+                <div class="mt-8 space-y-4">
+                    <details class="bg-gray-900 p-6 rounded-lg cursor-pointer group"><summary class="font-semibold text-lg text-white flex justify-between items-center">O acesso é realmente vitalício?<span class="transform transition-transform duration-300 group-open:rotate-45">+</span></summary><p class="mt-4 text-gray-300">Sim. Pagou uma vez, é seu para sempre. Incluindo todas as novas receitas e funcionalidades que adicionarmos no futuro.</p></details>
+                    <details class="bg-gray-900 p-6 rounded-lg cursor-pointer group"><summary class="font-semibold text-lg text-white flex justify-between items-center">Preciso de ingredientes caros ou difíceis de achar?<span class="transform transition-transform duration-300 group-open:rotate-45">+</span></summary><p class="mt-4 text-gray-300">Não! A maioria das receitas usa ingredientes que você encontra em qualquer bom supermercado. A ideia é facilitar sua vida, não complicar.</p></details>
+                    <details class="bg-gray-900 p-6 rounded-lg cursor-pointer group"><summary class="font-semibold text-lg text-white flex justify-between items-center">Funciona em qualquer celular?<span class="transform transition-transform duration-300 group-open:rotate-45">+</span></summary><p class="mt-4 text-gray-300">Sim, o Comer sem Medo é um aplicativo web, o que significa que funciona perfeitamente em qualquer celular (iPhone ou Android) através do navegador. Sem precisar baixar nada.</p></details>
+                </div>
+            </div>
         </section>
     </main>
+    
+    <!-- MODAL PARA EXIBIR RESULTADOS DA IA -->
+    <div id="ai-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col">
+            <div class="flex justify-between items-center p-4 border-b border-gray-700">
+                <h3 id="modal-title" class="text-xl font-bold text-amber-400">Aqui está sua mágica!</h3>
+                <button id="close-modal-btn" class="text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <div class="p-6 overflow-y-auto">
+                <p id="modal-content" class="text-gray-300 modal-content"></p>
+            </div>
+        </div>
+    </div>
 
-    <footer class="bg-gray-900 text-gray-400 py-6">
-        <div class="container mx-auto px-6 text-center text-sm">
-            <p>© 2025 Comer Sem Medo. Todos os direitos reservados.</p>
-            <p>Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho de uma estratégia não deve ser interpretada como uma garantia de resultados.</p>
+
+    <footer class="bg-black">
+        <div class="container mx-auto py-8 px-6 text-center text-gray-500">
+            <p>&copy; 2025 Comer sem Medo. Todos os direitos reservados.</p>
+            <p class="text-xs mt-4">Este site e seu produto não são afiliados ao Facebook™ ou Google™. Eles não foram revisados ou endossados por eles. Todas as informações fornecidas são baseadas nas melhores práticas e para fins educacionais. Para questões de suporte, entre em contato com suporte@comersemmedo.com.</p>
         </div>
     </footer>
+
     <script>
-        document.getElementById('faq-container').addEventListener('click', function (e) {
-            const question = e.target.closest('.faq-question');
-            if (!question) return;
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
 
-            const answer = question.nextElementSibling;
-            const icon = question.querySelector('span');
+        // --- LÓGICA DA IA ---
+        const generateRecipeBtn = document.getElementById('generate-recipe-btn');
+        const adaptRecipeBtn = document.getElementById('adapt-recipe-btn');
+        const aiModal = document.getElementById('ai-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
 
-            if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
-                answer.style.maxHeight = '0px';
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                // Fecha todas as outras respostas abertas
-                const allAnswers = document.querySelectorAll('.faq-answer');
-                const allIcons = document.querySelectorAll('.faq-question span');
-                allAnswers.forEach(a => a.style.maxHeight = '0px');
-                allIcons.forEach(i => i.style.transform = 'rotate(0deg)');
+        const apiKey = ""; // Canvas vai injetar a chave aqui
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+        
+        async function callAI(prompt, button) {
+            const btnText = button.querySelector('.btn-text');
+            const loader = button.querySelector('.loader');
 
-                // Abre a resposta clicada
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-                icon.style.transform = 'rotate(45deg)';
+            btnText.classList.add('hidden');
+            loader.classList.remove('hidden');
+            button.disabled = true;
+
+            try {
+                const payload = {
+                    contents: [{ parts: [{ text: prompt }] }],
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Erro na API: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    return candidate.content.parts[0].text;
+                } else {
+                    return "Desculpe, a IA está tirando uma soneca. Tente novamente mais tarde.";
+                }
+            } catch (error) {
+                console.error("Erro ao chamar a IA:", error);
+                return "Deu merda na comunicação com a IA. Verifique o console e tente de novo.";
+            } finally {
+                btnText.classList.remove('hidden');
+                loader.classList.add('hidden');
+                button.disabled = false;
+            }
+        }
+        
+        generateRecipeBtn.addEventListener('click', async () => {
+            const ingredients = document.getElementById('ingredients').value;
+            if (!ingredients.trim()) {
+                alert("Escreve alguma coisa aí, arrombado!");
+                return;
+            }
+            const prompt = `Você é um chef de cozinha de renome mundial, especialista em culinária deliciosa sem glúten e sem lactose. Um usuário tem os seguintes ingredientes: "${ingredients}". Crie uma receita única, saborosa e fácil de seguir usando principalmente esses ingredientes. A receita DEVE ser 100% livre de glúten e lactose. Formate a resposta com um nome criativo para a receita, uma lista de ingredientes e o modo de preparo passo a passo. Seja criativo e direto.`;
+            
+            const result = await callAI(prompt, generateRecipeBtn);
+            modalTitle.innerText = "Sua Nova Receita Exclusiva!";
+            modalContent.innerText = result;
+            aiModal.classList.remove('hidden');
+        });
+
+        adaptRecipeBtn.addEventListener('click', async () => {
+            const recipeToAdapt = document.getElementById('recipe-to-adapt').value;
+            if (!recipeToAdapt.trim()) {
+                alert("Cola a porra da receita aí, animal!");
+                return;
+            }
+            const prompt = `Você é um chef de cozinha especialista em adaptar receitas para restrições alimentares. Um usuário forneceu a seguinte receita: "${recipeToAdapt}". Sua tarefa é converter esta receita para ser 100% sem glúten e sem lactose. Forneça uma lista clara de substituições de ingredientes, explicando brevemente o porquê de cada troca, e depois reescreva o modo de preparo passo a passo já com as adaptações. O resultado final tem que ser delicioso.`;
+
+            const result = await callAI(prompt, adaptRecipeBtn);
+            modalTitle.innerText = "Sua Receita Proibida, Agora Liberada!";
+            modalContent.innerText = result;
+            aiModal.classList.remove('hidden');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            aiModal.classList.add('hidden');
+        });
+        
+        aiModal.addEventListener('click', (e) => {
+            if(e.target === aiModal) {
+                 aiModal.classList.add('hidden');
             }
         });
+
     </script>
 </body>
 </html>
-
-
 
