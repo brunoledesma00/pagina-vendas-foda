@@ -298,6 +298,12 @@
         const apiKey = ""; // Canvas vai injetar a chave aqui
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
         
+        function showModal(title, content) {
+            modalTitle.innerText = title;
+            modalContent.innerText = content;
+            aiModal.classList.remove('hidden');
+        }
+        
         async function callAI(prompt, button) {
             const btnText = button.querySelector('.btn-text');
             const loader = button.querySelector('.loader');
@@ -327,11 +333,11 @@
                 if (candidate && candidate.content?.parts?.[0]?.text) {
                     return candidate.content.parts[0].text;
                 } else {
-                    return "Desculpe, a IA está tirando uma soneca. Tente novamente mais tarde.";
+                    return "Desculpe, a IA está a tirar uma soneca. Tente novamente mais tarde.";
                 }
             } catch (error) {
                 console.error("Erro ao chamar a IA:", error);
-                return "Deu merda na comunicação com a IA. Verifique o console e tente de novo.";
+                return "Deu merda na comunicação com a IA. Verifique a consola e tente de novo.";
             } finally {
                 btnText.classList.remove('hidden');
                 loader.classList.add('hidden');
@@ -342,29 +348,25 @@
         generateRecipeBtn.addEventListener('click', async () => {
             const ingredients = document.getElementById('ingredients').value;
             if (!ingredients.trim()) {
-                alert("Escreve alguma coisa aí, arrombado!");
+                showModal("Falta Cérebro?", "Escreve alguma coisa no campo dos ingredientes, seu arrombado! A IA não lê mentes... ainda.");
                 return;
             }
             const prompt = `Você é um chef de cozinha de renome mundial, especialista em culinária deliciosa sem glúten e sem lactose. Um usuário tem os seguintes ingredientes: "${ingredients}". Crie uma receita única, saborosa e fácil de seguir usando principalmente esses ingredientes. A receita DEVE ser 100% livre de glúten e lactose. Formate a resposta com um nome criativo para a receita, uma lista de ingredientes e o modo de preparo passo a passo. Seja criativo e direto.`;
             
             const result = await callAI(prompt, generateRecipeBtn);
-            modalTitle.innerText = "Sua Nova Receita Exclusiva!";
-            modalContent.innerText = result;
-            aiModal.classList.remove('hidden');
+            showModal("Sua Nova Receita Exclusiva!", result);
         });
 
         adaptRecipeBtn.addEventListener('click', async () => {
             const recipeToAdapt = document.getElementById('recipe-to-adapt').value;
             if (!recipeToAdapt.trim()) {
-                alert("Cola a porra da receita aí, animal!");
+                showModal("Mão Torta?", "Cola a porra da receita aí, animal! Como é que a IA vai adivinhar?");
                 return;
             }
             const prompt = `Você é um chef de cozinha especialista em adaptar receitas para restrições alimentares. Um usuário forneceu a seguinte receita: "${recipeToAdapt}". Sua tarefa é converter esta receita para ser 100% sem glúten e sem lactose. Forneça uma lista clara de substituições de ingredientes, explicando brevemente o porquê de cada troca, e depois reescreva o modo de preparo passo a passo já com as adaptações. O resultado final tem que ser delicioso.`;
 
             const result = await callAI(prompt, adaptRecipeBtn);
-            modalTitle.innerText = "Sua Receita Proibida, Agora Liberada!";
-            modalContent.innerText = result;
-            aiModal.classList.remove('hidden');
+            showModal("Sua Receita Proibida, Agora Liberada!", result);
         });
 
         closeModalBtn.addEventListener('click', () => {
@@ -380,7 +382,4 @@
     </script>
 </body>
 </html>
-
-
-
 
