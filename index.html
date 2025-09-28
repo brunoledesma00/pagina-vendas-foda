@@ -295,7 +295,12 @@
         const modalTitle = document.getElementById('modal-title');
         const modalContent = document.getElementById('modal-content');
 
-        const apiKey = ""; // Canvas vai injetar a chave aqui
+        // SEU MERDA, PRESTA ATENÇÃO AQUI!
+        // O CÓDIGO NÃO FUNCIONA NA VERCEL PORQUE FALTA A TUA CHAVE DE API DO GOOGLE.
+        // VAI A https://aistudio.google.com/app/apikey, GERA UMA CHAVE E COLA ELA AQUI DENTRO DAS ASPAS.
+        // SE NÃO FIZERES ISSO, VAI CONTINUAR A DAR MERDA. ENTENDESTE, ANIMAL?
+        const apiKey = "AIzaSyCT5eNjONpUp_Cxk2fFpDAW4JURYi84ASY"; // <--- BOTA A PORRA DA CHAVE AQUI, CARALHO!
+        
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
         
         function showModal(title, content) {
@@ -313,6 +318,10 @@
             button.disabled = true;
 
             try {
+                if (!apiKey || apiKey === "COLA_A_TUA_CHAVE_DE_API_AQUI") {
+                    throw new Error("API Key não configurada. Seu animal!");
+                }
+
                 const payload = {
                     contents: [{ parts: [{ text: prompt }] }],
                 };
@@ -332,12 +341,16 @@
 
                 if (candidate && candidate.content?.parts?.[0]?.text) {
                     return candidate.content.parts[0].text;
-                } else {
+                } else if (result.promptFeedback && result.promptFeedback.blockReason) {
+                    console.error("Prompt bloqueado pela API:", result.promptFeedback);
+                    return `A IA ficou com medinho do teu pedido e bloqueou. Tenta ser menos esquisito. (Razão: ${result.promptFeedback.blockReason})`;
+                }
+                else {
                     return "Desculpe, a IA está a tirar uma soneca. Tente novamente mais tarde.";
                 }
             } catch (error) {
                 console.error("Erro ao chamar a IA:", error);
-                return "Deu merda na comunicação com a IA. Verifique a consola e tente de novo.";
+                return `Deu merda na comunicação com a IA. Verifique a consola e tente de novo.\n\nDetalhe do erro (para ti que és nerd): ${error.message}`;
             } finally {
                 btnText.classList.remove('hidden');
                 loader.classList.add('hidden');
@@ -382,4 +395,5 @@
     </script>
 </body>
 </html>
+
 
