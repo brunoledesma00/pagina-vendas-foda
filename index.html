@@ -30,38 +30,190 @@
             font-family: 'Poppins', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            scroll-behavior: smooth;
         }
         .hero-gradient {
-            background: linear-gradient(180deg, rgba(17, 24, 39, 0.95) 0%, #111827 100%);
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, #0f172a 100%);
         }
         .cta-button {
-            transition: all 0.3s ease;
-            box-shadow: 0px 10px 20px rgba(251, 191, 36, 0.25);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0px 10px 25px rgba(234, 88, 12, 0.35);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s;
+            z-index: -1;
         }
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 15px 25px rgba(251, 191, 36, 0.4);
+            transform: translateY(-7px);
+            box-shadow: 0px 20px 30px rgba(234, 88, 12, 0.5);
+        }
+        .cta-button:hover:before {
+            left: 100%;
         }
         .testimonial-card {
-            background: #1F2937;
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border-left: 4px solid #ea580c;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+        .testimonial-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(249, 115, 22, 0.2);
+            border-left: 4px solid #fb923c;
+        }
+        
+        /* Efeito de flutuação */
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        /* Efeito de brilho */
+        @keyframes shine {
+            0% {
+                background-position: -100% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+        
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            background-size: 200% 100%;
+            animation: shine 3s infinite;
+        }
+        
+        /* Estilo para os itens do FAQ */
+        .faq-item {
+            background: linear-gradient(to right, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .faq-item:hover {
+            border-left-color: #f97316;
+            transform: translateX(5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .highlight-text {
+            background: linear-gradient(90deg, #f97316, #fb923c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline;
+        }
+        .faq-item {
+            background: linear-gradient(to right, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .faq-item:hover {
+            border-left-color: #f97316;
+            transform: translateX(5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .highlight-text {
+            background: linear-gradient(90deg, #f97316, #fb923c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline;
+        }
+        }
+        
+        /* Efeito de brilho para elementos */
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: skewX(-25deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            20%, 100% {
+                left: 150%;
+            }
+        }
+        
         .reveal {
             position: relative;
-            transform: translateY(100px);
+            transform: translateY(80px);
             opacity: 0;
-            transition: all 1s ease;
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
         .reveal.active {
             transform: translateY(0px);
             opacity: 1;
         }
-        /* Estilos para a prova social, seu arrombado */
+        /* Estilos para a prova social */
         #social-proof.show {
             display: flex;
-            animation: slideIn 0.5s ease forwards;
+            animation: slideIn 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
         }
         #social-proof.hide {
-            animation: slideOut 0.5s ease forwards;
+            animation: slideOut 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
         }
         @keyframes slideIn {
             from { transform: translateX(-120%); }
@@ -71,13 +223,39 @@
             from { transform: translateX(0); }
             to { transform: translateX(-120%); }
         }
+        .feature-card {
+            border-radius: 16px;
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-bottom: 3px solid #ea580c;
+        }
+        .highlight-text {
+            background: linear-gradient(90deg, #ea580c, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .faq-item {
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .faq-item[open] {
+            border-left: 3px solid #ea580c;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
 
-    <!-- CONTADOR DO APOCALIPSE, PRA GERAR PÂNICO -->
-    <div id="countdown-timer" class="sticky top-0 z-[60] bg-amber-500 text-gray-900 text-center p-2 font-bold text-lg shadow-lg">
-        <span>🔥 OFERTA EXCLUSIVA TERMINA EM: <span id="timer">10:00</span> 🔥</span>
+    <!-- CONTADOR DE URGÊNCIA -->
+    <div id="countdown-timer" class="sticky top-0 z-[60] bg-gradient-to-r from-orange-600 to-orange-500 text-white text-center py-3 font-bold text-lg shadow-xl flex items-center justify-center space-x-2">
+        <svg class="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+        <span>OFERTA ESPECIAL POR TEMPO LIMITADO: <span id="timer" class="font-extrabold">10:00</span></span>
+        <svg class="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
     </div>
 
     <!-- HERO SECTION -->
@@ -90,28 +268,57 @@
         </div>
         <div class="hero-gradient absolute inset-0 z-10"></div>
         <div class="container mx-auto px-6 relative z-20 reveal">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
-                A COMIDA TE CONDENOU A UMA PRISÃO SEM GRADES?
+            <span class="inline-block px-4 py-1 rounded-full bg-orange-600/30 text-orange-400 font-semibold mb-6 border border-orange-600/50">REVOLUCIONE SUA RELAÇÃO COM A COMIDA</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+                <span class="highlight-text">LIBERTE-SE</span> DA PRISÃO ALIMENTAR<br>E RECUPERE O PRAZER DE COMER
             </h1>
-            <p class="mt-4 text-lg md:text-xl text-amber-400 max-w-3xl mx-auto">
-                Chega de ser refém do seu próprio prato. Recupere o direito de comer uma pizza fudida, um bolo delicioso e o que mais você quiser, sem virar refém da dor, do inchaço e da culpa.
+            <p class="mt-4 text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto">
+                Descubra como <span class="font-bold text-white">milhares de pessoas</span> estão desfrutando novamente de suas comidas favoritas — pizza, bolo, pão — sem dor, inchaço ou culpa.
             </p>
-            <a href="#oferta" class="cta-button mt-8 inline-block bg-amber-500 text-gray-900 font-bold text-xl py-4 px-12 rounded-full uppercase tracking-wider">
-                QUERO MINHA LIBERDADE AGORA
+            <a href="#oferta" class="cta-button mt-10 inline-block bg-gradient-to-r from-orange-600 to-orange-500 text-white font-bold text-xl py-5 px-12 rounded-full uppercase tracking-wider">
+                QUERO RECUPERAR MINHA LIBERDADE
+                <span class="block text-sm font-normal mt-1">Acesso Imediato + Bônus Exclusivos</span>
             </a>
         </div>
     </header>
 
     <main>
         <!-- SEÇÃO "PARA QUEM É": CONEXÃO IMEDIATA -->
-        <section class="py-20 bg-gray-800">
+        <section class="py-24 bg-gradient-to-b from-slate-900 to-slate-800">
             <div class="container mx-auto px-6 text-center reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Se você vive esse inferno, o Comer sem Medo é a sua salvação.</h2>
+                <span class="inline-block px-4 py-1 rounded-full bg-orange-600/20 text-orange-400 font-semibold mb-4 border border-orange-600/30">FEITO PARA VOCÊ</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-12">Você se identifica com alguma dessas situações?</h2>
                 <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-gray-900 p-6 rounded-xl"><p>Para quem se sente <span class="text-amber-400 font-semibold">excluído em jantares</span> e festas.</p></div>
-                    <div class="bg-gray-900 p-6 rounded-xl"><p>Para quem já gastou rios de dinheiro com <span class="text-amber-400 font-semibold">produtos sem gosto</span>.</p></div>
-                    <div class="bg-gray-900 p-6 rounded-xl"><p>Para quem tem medo de comer e <span class="text-amber-400 font-semibold">passar mal logo depois</span>.</p></div>
-                    <div class="bg-gray-900 p-6 rounded-xl"><p>Para quem só quer voltar a ter <span class="text-amber-400 font-semibold">prazer em uma refeição</span> simples.</p></div>
+                    <div class="feature-card p-8 flex flex-col items-center">
+                        <div class="w-16 h-16 rounded-full bg-orange-600/20 flex items-center justify-center mb-5">
+                            <svg class="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <p class="text-lg">Se sente <span class="font-semibold text-white">excluído em eventos sociais</span> por causa das restrições alimentares</p>
+                    </div>
+                    <div class="feature-card p-8 flex flex-col items-center">
+                        <div class="w-16 h-16 rounded-full bg-orange-600/20 flex items-center justify-center mb-5">
+                            <svg class="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <p class="text-lg">Já gastou <span class="font-semibold text-white">muito dinheiro</span> com produtos especiais sem sabor</p>
+                    </div>
+                    <div class="feature-card p-8 flex flex-col items-center">
+                        <div class="w-16 h-16 rounded-full bg-orange-600/20 flex items-center justify-center mb-5">
+                            <svg class="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z"></path><path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z"></path><path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z"></path></svg>
+                        </div>
+                        <p class="text-lg">Tem <span class="font-semibold text-white">medo de comer</span> e sofrer com dores e desconforto depois</p>
+                    </div>
+                    <div class="feature-card p-8 flex flex-col items-center">
+                        <div class="w-16 h-16 rounded-full bg-orange-600/20 flex items-center justify-center mb-5">
+                            <svg class="w-8 h-8 text-orange-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        </div>
+                        <p class="text-lg">Sonha em <span class="font-semibold text-white">redescobrir o prazer</span> de uma refeição sem preocupações</p>
+                    </div>
+                </div>
+                <div class="mt-16">
+                    <a href="#oferta" class="inline-flex items-center text-orange-400 font-semibold hover:text-orange-300 transition-colors">
+                        <span>Descubra a solução</span>
+                        <svg class="w-5 h-5 ml-2 animate-bounce" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -136,73 +343,214 @@
         </section>
         
         <!-- SEÇÃO DE DEPOIMENTOS (PROVA SOCIAL) -->
-        <section class="py-20 bg-gray-800">
-            <div class="container mx-auto px-6 text-center reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Não acredite em mim. Acredite neles:</h2>
+        <section class="py-24 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
+            <!-- Elementos decorativos de fundo -->
+            <div class="absolute top-0 right-0 w-full h-full overflow-hidden z-0 opacity-10">
+                <div class="absolute top-0 right-0 w-72 h-72 bg-orange-500 rounded-full filter blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-orange-600 rounded-full filter blur-3xl"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 text-center relative z-10 reveal">
+                <span class="inline-block px-4 py-1 rounded-full bg-orange-600/20 text-orange-400 font-semibold mb-4 border border-orange-600/30">HISTÓRIAS REAIS</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Pessoas reais, resultados transformadores</h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto mb-12">Veja como o Comer sem Medo está mudando vidas e devolvendo o prazer de comer sem preocupações.</p>
+                
                 <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Depoimento 1 -->
-                    <div class="testimonial-card p-8 rounded-xl text-left">
-                        <div class="flex items-center">
-                            <img src="https://i.imgur.com/uBGhHAY.png" class="w-12 h-12 rounded-full" alt="Foto de Mariana S.">
+                    <div class="testimonial-card p-8 rounded-xl text-left relative">
+                        <div class="absolute -top-4 -left-4 text-5xl text-orange-500/20 font-serif">"</div>
+                        <div class="flex items-center mb-6">
+                            <img src="https://i.imgur.com/uBGhHAY.png" class="w-16 h-16 rounded-full border-2 border-orange-500 p-1" alt="Foto de Mariana S.">
                             <div class="ml-4">
-                                <p class="font-bold text-white">Mariana S.</p>
-                                <p class="text-sm text-amber-400">★★★★★</p>
+                                <p class="font-bold text-white text-lg">Mariana S.</p>
+                                <div class="flex text-orange-500 mt-1">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </div>
                             </div>
                         </div>
-                        <p class="mt-4 text-gray-300">"Eu chorava achando que nunca mais ia comer um bolo fofinho. O Comer sem Medo não só me deu receitas, me deu minha alegria de volta. É sério, mudou minha vida."</p>
+                        <p class="text-slate-300 text-lg leading-relaxed">"Eu chorava achando que nunca mais ia comer um bolo fofinho. O Comer sem Medo não só me deu receitas incríveis, me devolveu a alegria de poder compartilhar refeições com minha família. Mudou completamente minha vida!"</p>
+                        <div class="mt-4 text-orange-400 font-medium">
+                            <span class="block text-sm text-slate-400">Resultado favorito:</span>
+                            Pão de queijo que não causa desconforto
+                        </div>
                     </div>
+                    
                     <!-- Depoimento 2 -->
-                    <div class="testimonial-card p-8 rounded-xl text-left">
-                        <div class="flex items-center">
-                            <img src="https://i.imgur.com/NcC4AUd.png" class="w-12 h-12 rounded-full" alt="Foto de Ricardo L.">
+                    <div class="testimonial-card p-8 rounded-xl text-left relative">
+                        <div class="absolute -top-4 -left-4 text-5xl text-orange-500/20 font-serif">"</div>
+                        <div class="flex items-center mb-6">
+                            <img src="https://i.imgur.com/NcC4AUd.png" class="w-16 h-16 rounded-full border-2 border-orange-500 p-1" alt="Foto de Ricardo L.">
                             <div class="ml-4">
-                                <p class="font-bold text-white">Ricardo L.</p>
-                                <p class="text-sm text-amber-400">★★★★★</p>
+                                <p class="font-bold text-white text-lg">Ricardo L.</p>
+                                <div class="flex text-orange-500 mt-1">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </div>
                             </div>
                         </div>
-                        <p class="mt-4 text-gray-300">"Sou um desastre na cozinha, mas os vídeos são tão diretos que até eu consigo fazer. A pizza de sexta à noite voltou a ser sagrada aqui em casa. Recomendo pra caralho!"</p>
+                        <p class="text-slate-300 text-lg leading-relaxed">"Sou péssimo na cozinha, mas os vídeos são tão claros que até eu consigo fazer. A pizza de sexta à noite voltou a ser tradição aqui em casa e o melhor: sem dor de barriga depois. Recomendo muito!"</p>
+                        <div class="mt-4 text-orange-400 font-medium">
+                            <span class="block text-sm text-slate-400">Resultado favorito:</span>
+                            Pizza caseira com massa perfeita
+                        </div>
                     </div>
+                    
                     <!-- Depoimento 3 -->
-                    <div class="testimonial-card p-8 rounded-xl text-left">
-                        <div class="flex items-center">
-                            <img src="https://i.imgur.com/m51E8Hw.png" class="w-12 h-12 rounded-full" alt="Foto de Juliana F.">
+                    <div class="testimonial-card p-8 rounded-xl text-left relative">
+                        <div class="absolute -top-4 -left-4 text-5xl text-orange-500/20 font-serif">"</div>
+                        <div class="flex items-center mb-6">
+                            <img src="https://i.imgur.com/m51E8Hw.png" class="w-16 h-16 rounded-full border-2 border-orange-500 p-1" alt="Foto de Juliana F.">
                             <div class="ml-4">
-                                <p class="font-bold text-white">Juliana F.</p>
-                                <p class="text-sm text-amber-400">★★★★★</p>
+                                <p class="font-bold text-white text-lg">Juliana F.</p>
+                                <div class="flex text-orange-500 mt-1">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </div>
                             </div>
                         </div>
-                        <p class="mt-4 text-gray-300">"O melhor investimento que fiz pela minha saúde e meu bem-estar. O app é lindo, fácil de usar e as receitas... sem palavras. Comprem sem medo."</p>
+                        <p class="text-slate-300 text-lg leading-relaxed">"O melhor investimento que fiz pela minha saúde e bem-estar. O app é intuitivo, as receitas são deliciosas e finalmente posso comer sem medo. Minha qualidade de vida melhorou 100%!"</p>
+                        <div class="mt-4 text-orange-400 font-medium">
+                            <span class="block text-sm text-slate-400">Resultado favorito:</span>
+                            Sobremesas para ocasiões especiais
+                        </div>
                     </div>
+                </div>
+                
+                <div class="mt-16 bg-gradient-to-r from-slate-800 to-slate-900 p-6 rounded-xl border border-orange-500/20 max-w-3xl mx-auto">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.imgur.com/uBGhHAY.png" class="w-10 h-10 rounded-full border-2 border-slate-800" alt="">
+                            <img src="https://i.imgur.com/NcC4AUd.png" class="w-10 h-10 rounded-full border-2 border-slate-800" alt="">
+                            <img src="https://i.imgur.com/m51E8Hw.png" class="w-10 h-10 rounded-full border-2 border-slate-800" alt="">
+                        </div>
+                        <p class="ml-4 text-slate-300">Junte-se a mais de <span class="font-bold text-white">5.000 pessoas</span> que transformaram sua relação com a comida</p>
+                    </div>
+                    <a href="#oferta" class="inline-flex items-center text-orange-400 font-semibold hover:text-orange-300 transition-colors">
+                        <span>Quero fazer parte dessa transformação</span>
+                        <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </a>
                 </div>
             </div>
         </section>
                 
         <!-- SEÇÃO DE OFERTA -->
-        <section id="oferta" class="py-20 bg-gray-800">
-            <div class="container mx-auto px-6 text-center reveal">
-                <div class="max-w-2xl mx-auto bg-gray-900 rounded-2xl border-2 border-amber-500 p-8 shadow-2xl">
-                    <h2 class="text-3xl font-extrabold text-white">Sua chance de ter TUDO ISSO hoje.</h2>
+        <section id="oferta" class="py-24 bg-gradient-to-b from-slate-800 to-slate-900 relative overflow-hidden">
+            <!-- Elementos decorativos de fundo -->
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-10">
+                <div class="absolute top-0 left-0 w-64 h-64 bg-orange-500 rounded-full filter blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 w-80 h-80 bg-orange-600 rounded-full filter blur-3xl"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 text-center relative z-10 reveal">
+                <span class="inline-block px-4 py-1 rounded-full bg-orange-600/20 text-orange-400 font-semibold mb-4 border border-orange-600/30">OFERTA ESPECIAL</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8">Transforme sua relação com a comida <span class="highlight-text">hoje mesmo</span></h2>
+                
+                <div class="max-w-3xl mx-auto bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl border border-orange-500/30 p-10 shadow-2xl backdrop-blur-sm">
+                    <div class="flex flex-col md:flex-row items-center gap-8 mb-10">
+                        <div class="md:w-1/2">
+                            <img src="https://i.imgur.com/VbomOrl.png" alt="Mockup do App Comer sem Medo" class="rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-500 w-full">
+                        </div>
+                        <div class="md:w-1/2 text-left">
+                            <h3 class="text-2xl font-bold text-white mb-4">App Comer sem Medo</h3>
+                            <p class="text-slate-300 mb-6">Acesso vitalício a um universo de sabor, sem mensalidades, sem pegadinhas. Recupere o prazer de comer o que você ama.</p>
+                            <div class="flex items-center mb-2">
+                                <div class="flex mr-2">
+                                    <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                    <svg class="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                </div>
+                                <span class="text-white font-medium">4.9/5</span>
+                                <span class="text-slate-400 text-sm ml-2">(1.243 avaliações)</span>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <img src="https://i.imgur.com/VbomOrl.png" alt="Mockup do App Comer sem Medo" class="my-6 mx-auto rounded-lg shadow-md max-w-sm w-full">
-
-                    <p class="mt-4 text-lg text-gray-300">Acesso vitalício a um universo de sabor, sem mensalidades, sem pegadinhas.</p>
-                    <div class="mt-6 bg-black p-6 rounded-lg text-left">
-                        <h3 class="font-bold text-white text-xl mb-4">O que você leva:</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Acesso VITALÍCIO ao App Comer sem Medo</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Todas as Atualizações Futuras de Receitas</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>Bônus: Ebook "Sobremesas de Festa" (Valor R$47)</li>
-                        </ul>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                        <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700/50">
+                            <h4 class="font-bold text-white text-xl mb-4 flex items-center">
+                                <svg class="w-6 h-6 text-orange-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                O que você recebe:
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-orange-500 mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-semibold text-white">Acesso VITALÍCIO</span> ao App Comer sem Medo</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-orange-500 mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-semibold text-white">+300 receitas</span> deliciosas e seguras</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-orange-500 mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-semibold text-white">Todas as atualizações</span> futuras de receitas</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-orange-600/10 p-6 rounded-xl border border-orange-500/30">
+                            <h4 class="font-bold text-white text-xl mb-4 flex items-center">
+                                <svg class="w-6 h-6 text-orange-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"></path></svg>
+                                Bônus Exclusivos:
+                            </h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-orange-500 mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-semibold text-white">Ebook "Sobremesas de Festa"</span> <span class="text-orange-400">(Valor R$47)</span></span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-orange-500 mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-semibold text-white">Guia de Substituições</span> <span class="text-orange-400">(Valor R$29)</span></span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-orange-500 mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span><span class="font-semibold text-white">Acesso ao grupo VIP</span> <span class="text-orange-400">(Valor R$37/mês)</span></span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="my-8">
-                        <span class="text-xl text-gray-500 line-through">Tudo isso valeria R$97</span>
-                        <p class="text-sm text-white">Mas hoje, por um pagamento único de:</p>
-                        <p class="text-5xl font-extrabold text-white my-2"><span class="text-amber-400">R$19,90</span></p>
-                        <p class="font-semibold">Acesso vitalício. Pagamento único.</p>
+                    
+                    <div class="bg-gradient-to-r from-slate-900 to-slate-800 p-8 rounded-xl border border-orange-500/20 mb-8">
+                        <div class="flex flex-col md:flex-row justify-between items-center">
+                            <div class="text-left mb-6 md:mb-0">
+                                <p class="text-lg text-slate-300">Valor total: <span class="line-through text-slate-500">R$197</span></p>
+                                <div class="flex items-center">
+                                    <div>
+                                        <p class="text-sm text-white mt-1">Hoje por apenas:</p>
+                                        <p class="text-5xl font-extrabold text-white my-1"><span class="highlight-text">R$19,90</span></p>
+                                    </div>
+                                    <div class="ml-4 bg-orange-600/20 text-orange-400 px-3 py-1 rounded-lg border border-orange-500/30 text-sm font-bold">
+                                        ECONOMIA DE 90%
+                                    </div>
+                                </div>
+                                <p class="text-sm text-slate-400">Pagamento único • Acesso vitalício • Sem mensalidades</p>
+                            </div>
+                            <div class="w-full md:w-auto">
+                                <a href="https://pay.hotmart.com/P101741907P?checkoutMode=10" class="cta-button w-full md:w-auto inline-block bg-gradient-to-r from-orange-600 to-orange-500 text-white font-bold text-xl py-5 px-10 rounded-full uppercase tracking-wider">
+                                    QUERO TRANSFORMAR MINHA ALIMENTAÇÃO
+                                    <span class="block text-sm font-normal mt-1">Clique aqui para garantir seu acesso</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="https://pay.hotmart.com/P101741907P?checkoutMode=10" class="cta-button w-full inline-block bg-amber-500 text-gray-900 font-bold text-xl py-4 px-12 rounded-full uppercase tracking-wider">
-                        Sim, Quero o Futuro da Culinária!
-                    </a>
+                    
+                    <div class="flex items-center justify-center text-sm text-slate-400">
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                        Pagamento 100% seguro
+                        <span class="mx-3">•</span>
+                        <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        Garantia de 7 dias
+                    </div>
                 </div>
             </div>
         </section>
@@ -221,13 +569,68 @@
         </section>
 
         <!-- FAQ -->
-        <section class="py-20 bg-gray-800">
-             <div class="container mx-auto px-6 max-w-3xl reveal">
-                <h2 class="text-3xl font-bold text-white text-center">Suas últimas dúvidas, respondidas.</h2>
-                <div class="mt-8 space-y-4">
-                    <details class="bg-gray-900 p-6 rounded-lg cursor-pointer group"><summary class="font-semibold text-lg text-white flex justify-between items-center">O acesso é realmente vitalício?<span class="transform transition-transform duration-300 group-open:rotate-45">+</span></summary><p class="mt-4 text-gray-300">Sim. Pagou uma vez, é seu para sempre. Incluindo todas as novas receitas e funcionalidades que adicionarmos no futuro.</p></details>
-                    <details class="bg-gray-900 p-6 rounded-lg cursor-pointer group"><summary class="font-semibold text-lg text-white flex justify-between items-center">Preciso de ingredientes caros ou difíceis de achar?<span class="transform transition-transform duration-300 group-open:rotate-45">+</span></summary><p class="mt-4 text-gray-300">Não! A maioria das receitas usa ingredientes que você encontra em qualquer bom supermercado. A ideia é facilitar sua vida, não complicar.</p></details>
-                    <details class="bg-gray-900 p-6 rounded-lg cursor-pointer group"><summary class="font-semibold text-lg text-white flex justify-between items-center">Funciona em qualquer celular?<span class="transform transition-transform duration-300 group-open:rotate-45">+</span></summary><p class="mt-4 text-gray-300">Sim, o Comer sem Medo é um aplicativo web, o que significa que funciona perfeitamente em qualquer celular (iPhone ou Android) através do navegador. Sem precisar baixar nada.</p></details>
+        <section class="py-20 bg-gradient-to-b from-slate-900 to-slate-800 relative overflow-hidden">
+            <!-- Elementos decorativos de fundo -->
+            <div class="absolute top-0 right-0 w-full h-full overflow-hidden z-0 opacity-10">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-orange-500 rounded-full filter blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-72 h-72 bg-orange-600 rounded-full filter blur-3xl"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 max-w-3xl relative z-10 reveal">
+                <span class="inline-block px-4 py-1 rounded-full bg-orange-600/20 text-orange-400 font-semibold mb-4 border border-orange-600/30 mx-auto text-center">PERGUNTAS FREQUENTES</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-10">Suas últimas dúvidas, <span class="highlight-text">respondidas</span></h2>
+                <div class="mt-8 space-y-6">
+                    <details class="faq-item p-6 rounded-lg cursor-pointer group">
+                        <summary class="font-semibold text-lg text-white flex justify-between items-center">
+                            O acesso é realmente vitalício?
+                            <span class="transform transition-transform duration-300 group-open:rotate-45 text-orange-400 text-xl">+</span>
+                        </summary>
+                        <p class="mt-4 text-slate-300">Sim. Pagou uma vez, é seu para sempre. Incluindo todas as novas receitas e funcionalidades que adicionarmos no futuro.</p>
+                    </details>
+                    <details class="faq-item p-6 rounded-lg cursor-pointer group">
+                        <summary class="font-semibold text-lg text-white flex justify-between items-center">
+                            Preciso de ingredientes caros ou difíceis de achar?
+                            <span class="transform transition-transform duration-300 group-open:rotate-45 text-orange-400 text-xl">+</span>
+                        </summary>
+                        <p class="mt-4 text-slate-300">Não! A maioria das receitas usa ingredientes que você encontra em qualquer bom supermercado. A ideia é facilitar sua vida, não complicar.</p>
+                    </details>
+                    <details class="faq-item p-6 rounded-lg cursor-pointer group">
+                        <summary class="font-semibold text-lg text-white flex justify-between items-center">
+                            Funciona em qualquer celular?
+                            <span class="transform transition-transform duration-300 group-open:rotate-45 text-orange-400 text-xl">+</span>
+                        </summary>
+                        <p class="mt-4 text-slate-300">Sim, o Comer sem Medo é um aplicativo web, o que significa que funciona perfeitamente em qualquer celular (iPhone ou Android) através do navegador. Sem precisar baixar nada.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Garantia -->
+        <section class="py-20 bg-gradient-to-b from-slate-800 to-slate-900 relative overflow-hidden">
+            <!-- Elementos decorativos de fundo -->
+            <div class="absolute top-0 right-0 w-full h-full overflow-hidden z-0 opacity-10">
+                <div class="absolute top-0 left-0 w-64 h-64 bg-green-500 rounded-full filter blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 w-72 h-72 bg-green-600 rounded-full filter blur-3xl"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 max-w-4xl relative z-10 reveal">
+                <div class="flex flex-col md:flex-row items-center gap-8 bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-2xl border border-green-500/20 shadow-lg shadow-green-500/10">
+                    <div class="w-full md:w-1/3 flex justify-center">
+                        <div class="w-48 h-48 relative float-animation">
+                            <img src="garantia.png" alt="Selo de Garantia" class="w-full h-full object-contain shine-effect">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <span class="inline-block px-4 py-1 rounded-full bg-green-600/20 text-green-400 font-semibold mb-4 border border-green-600/30">GARANTIA INVIOLÁVEL</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Experimente <span class="highlight-text">sem riscos</span> por 30 dias</h2>
+                        <p class="text-slate-300 mb-6">Se por qualquer motivo você não ficar satisfeito com o Comer sem Medo, basta enviar um email para suporte@comersemmedo.com.br dentro de 30 dias após a compra e devolveremos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+                        <a href="#oferta" class="inline-flex items-center text-green-400 font-semibold hover:text-green-300 transition-colors">
+                            Quero experimentar agora
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
